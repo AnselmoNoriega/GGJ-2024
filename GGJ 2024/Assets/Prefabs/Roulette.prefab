@@ -211,8 +211,8 @@ GameObject:
   - component: {fileID: 4056485195122028401}
   - component: {fileID: 4778008176064321025}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 7
+  m_Name: 7
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,8 +539,8 @@ GameObject:
   - component: {fileID: 7310803071472594833}
   - component: {fileID: 2683775261307065305}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 3
+  m_Name: 3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -636,8 +636,8 @@ GameObject:
   - component: {fileID: 1077733313321582119}
   - component: {fileID: 3722470833540381183}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 6
+  m_Name: 6
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,8 +733,8 @@ GameObject:
   - component: {fileID: 8764964678113319782}
   - component: {fileID: 7056103543572861794}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 0
+  m_Name: 0
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -861,8 +861,8 @@ GameObject:
   - component: {fileID: 3043394211546823618}
   - component: {fileID: 4590283644588672605}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 1
+  m_Name: 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,8 +997,8 @@ GameObject:
   - component: {fileID: 787926787081971608}
   - component: {fileID: 6953986758541508142}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 2
+  m_Name: 2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1190,8 +1190,8 @@ GameObject:
   - component: {fileID: 1172792402521131028}
   - component: {fileID: 4070580995139267923}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 4
+  m_Name: 4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1319,8 +1319,8 @@ GameObject:
   - component: {fileID: 5621503322217755700}
   - component: {fileID: 8550924076251668648}
   m_Layer: 0
-  m_Name: OptionObj
-  m_TagString: 5
+  m_Name: 5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

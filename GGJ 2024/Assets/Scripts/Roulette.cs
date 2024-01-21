@@ -57,7 +57,7 @@ public class Roulette : MonoBehaviour
     {
         if(Physics.Raycast(_rouletteRay, out _rouletteHit, _pointerDistance))
         {
-            Debug.Log(_rouletteHit.collider.tag);
+            Debug.Log(_rouletteHit.collider.name);
         }
     }
 
