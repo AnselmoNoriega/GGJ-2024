@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c67b27635a3f0444ad8e0c6249be359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Roulette: {fileID: 0}
 --- !u!1 &4382687794540840512
 GameObject:
   m_ObjectHideFlags: 0
