@@ -1,0 +1,54 @@
+{
+    "name": "InputsControl",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "c8adf43d-5d7c-41d8-9519-37c787acaa71",
+            "actions": [
+                {
+                    "name": "SpinWheel",
+                    "type": "Button",
+                    "id": "6ec361dc-83bb-4953-b8a6-0fd57521dc69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StopWheel",
+                    "type": "Button",
+                    "id": "1fc64945-e709-454b-a4d9-f97c34730173",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6da64e16-edc7-49dd-9b44-0805c68f4cbf",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpinWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "622eab59-7312-4112-9008-8285dfc66d76",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

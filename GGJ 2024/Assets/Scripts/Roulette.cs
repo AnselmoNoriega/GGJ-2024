@@ -20,6 +20,9 @@ public class Roulette : MonoBehaviour
     private Vector3 _force = Vector3.zero;
     private float _forceCounter = 0;
 
+    private bool _isChargingSpin = false;
+    private bool _canSpin = true;
+
     private void Start()
     {
         _rouletteRay = new Ray(transform.position, Vector3.down);
@@ -34,41 +37,56 @@ public class Roulette : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (_isChargingSpin && _canSpin)
         {
-            _forceCounter += Time.deltaTime * _forceCountSpeed;
-            _forceSlider.value = _forceCounter;
-            Debug.Log(_forceCounter);
-
-            if(_forceCounter >= _maxForce || _forceCounter <= 0.0f)
-            {
-                _forceCountSpeed *= (-1);
-            }
-        }
-        else if(Input.GetKeyUp(KeyCode.Space))
-        {
-            _force.z = _forceCounter;
-            TurnRoulette(_force);
-            _forceCounter = 0.0f;
+            ChargeSpin();
         }
 
-        if(_rouletteRb.angularVelocity == Vector3.zero)
+        if(!_canSpin && _rouletteRb.angularVelocity == Vector3.zero)
         {
-            ForceCounter();
-        }
-
-        if(Input.GetKey(KeyCode.S))
-        {
-            _rouletteRb.angularVelocity = Vector3.zero;
+            CheckSpinResult();
+            _canSpin = true;
         }
     }
 
-    private void ForceCounter()
+    private void ChargeSpin()
+    {
+        _forceCounter += Time.deltaTime * _forceCountSpeed;
+        _forceSlider.value = _forceCounter;
+        Debug.Log(_forceCounter);
+
+        if (_forceCounter >= _maxForce || _forceCounter <= 0.0f)
+        {
+            _forceCountSpeed *= (-1);
+        }
+    }
+
+    private void CheckSpinResult()
     {
         if(Physics.Raycast(_rouletteRay, out _rouletteHit, _pointerDistance))
         {
             Debug.Log(_rouletteHit.collider.name);
         }
+    }
+
+    public void StartChargingSpin()
+    {
+        _isChargingSpin = true;
+    }
+
+    public void Start2Spin()
+    {
+        _force.z = _forceCounter;
+        TurnRoulette(_force);
+        _forceCounter = 0.0f;
+        _forceSlider.value = _forceCounter;
+        _isChargingSpin = false;
+        _canSpin = false;
+    }
+
+    public void StopRoulette()
+    {
+        _rouletteRb.angularVelocity = Vector3.zero;
     }
 
     private void OnDrawGizmos()
