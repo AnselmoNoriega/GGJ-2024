@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 7310803071472594833}
   - component: {fileID: 2683775261307065305}
   m_Layer: 0
-  m_Name: +1 Currency
+  m_Name: Gain Oxygen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -722,7 +722,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a6be987b8651c7043bce3b40e54473a5, type: 2}
+  - {fileID: 2100000, guid: e654e12e052a2e64ab317b9f84da08c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 8747757482605241281}
   - component: {fileID: 2516093596074058559}
   m_Layer: 0
-  m_Name: Oxygen
+  m_Name: +1 Currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,7 +1141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e654e12e052a2e64ab317b9f84da08c8, type: 2}
+  - {fileID: 2100000, guid: a6be987b8651c7043bce3b40e54473a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1367,7 +1367,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a6be987b8651c7043bce3b40e54473a5, type: 2}
+  - {fileID: 2100000, guid: e654e12e052a2e64ab317b9f84da08c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2171,7 +2171,7 @@ GameObject:
   - component: {fileID: 1172792402521131028}
   - component: {fileID: 4070580995139267923}
   m_Layer: 0
-  m_Name: Gain Oxygen
+  m_Name: +1 Currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2220,7 +2220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e654e12e052a2e64ab317b9f84da08c8, type: 2}
+  - {fileID: 2100000, guid: a6be987b8651c7043bce3b40e54473a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
