@@ -51,6 +51,11 @@ public class Roulette : MonoBehaviour
         {
             ForceCounter();
         }
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            _rouletteRb.angularVelocity = Vector3.zero;
+        }
     }
 
     private void ForceCounter()
