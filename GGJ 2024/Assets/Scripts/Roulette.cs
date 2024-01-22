@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Roulette : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Roulette : MonoBehaviour
     private RaycastHit _rouletteHit;
 
     [Header("Force Info")]
+    [SerializeField] Slider _forceSlider;
     [SerializeField] float _maxForce;
     [SerializeField] float _forceCountSpeed;
     private Vector3 _force = Vector3.zero;
@@ -21,6 +23,8 @@ public class Roulette : MonoBehaviour
     private void Start()
     {
         _rouletteRay = new Ray(transform.position, Vector3.down);
+        _forceSlider.maxValue = _maxForce;
+        _forceSlider.value = 0.0f;
     }
 
     public void TurnRoulette(Vector3 torqueForce)
@@ -33,6 +37,7 @@ public class Roulette : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             _forceCounter += Time.deltaTime * _forceCountSpeed;
+            _forceSlider.value = _forceCounter;
             Debug.Log(_forceCounter);
 
             if(_forceCounter >= _maxForce || _forceCounter <= 0.0f)
