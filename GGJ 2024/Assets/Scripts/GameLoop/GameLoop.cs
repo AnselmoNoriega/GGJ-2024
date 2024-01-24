@@ -69,9 +69,7 @@ public class GameLoop : MonoBehaviour
 
                 if(health <= 0)
                 {
-                    _gameOver = true;
-                    _AIHealthUI.text = "You are dead";
-                    _PlayerHealthUI.text = "You are dead";
+                    FinishGame("Ai");
                 }
             }
             else
@@ -81,9 +79,7 @@ public class GameLoop : MonoBehaviour
 
                 if (_AI_Health <= 0)
                 {
-                    _gameOver = true;
-                    _AIHealthUI.text = "AI is dead";
-                    _PlayerHealthUI.text = "AI is dead";
+                    FinishGame("Player");
                 }
             }
         }
@@ -92,5 +88,13 @@ public class GameLoop : MonoBehaviour
     public void EndTime()
     {
         _timer = 0.0f;
+    }
+
+    private void FinishGame(string winner)
+    {
+        _gameOver = true;
+        _AIHealthUI.text = winner + " is the winner";
+        _PlayerHealthUI.text = winner + " is the winner";
+        _timerUI.text = "";
     }
 }
