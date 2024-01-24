@@ -13,5 +13,7 @@ public class LevelLoader : MonoBehaviour
         ServiceLocator.Register<GameObjManager>(_gameObjManager);
         ServiceLocator.Register<GameLoop>(_gameLoopManager);
         ServiceLocator.Register<Player>(_player);
+
+        _gameLoopManager.Load();
     }
 }

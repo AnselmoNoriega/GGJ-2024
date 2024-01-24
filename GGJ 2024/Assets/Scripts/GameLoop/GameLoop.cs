@@ -13,13 +13,24 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _AIHealthUI;
     [SerializeField] private int _AI_Health = 5;
 
-    private void Start()
+    private bool _loaded = false;
+    private bool _gameOver = false;
+
+    public void Load()
     {
         _timer = _timePerRound;
+        _PlayerHealthUI.text = "Player Health: " + ServiceLocator.Get<Player>().Lives;
+        _AIHealthUI.text = "AI Health: " + _AI_Health;
+        _loaded = true;
     }
 
     private void Update()
     {
+        if(!_loaded || _gameOver)
+        {
+            return;
+        }
+
         if (_timer >= 0.0f)
         {
             _timer -= Time.deltaTime;
@@ -51,15 +62,29 @@ public class GameLoop : MonoBehaviour
 
         if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
         {
-            if(valves[0].transform.rotation.y == 0.0f)
+            if(Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
             {
-                --ServiceLocator.Get<Player>().Lives;
-                _PlayerHealthUI.text = "Player Health: " + ServiceLocator.Get<Player>().Lives;
+                int health = --ServiceLocator.Get<Player>().Lives;
+                _PlayerHealthUI.text = "Player Health: " + health;
+
+                if(health <= 0)
+                {
+                    _gameOver = true;
+                    _AIHealthUI.text = "You are dead";
+                    _PlayerHealthUI.text = "You are dead";
+                }
             }
             else
             {
                 --_AI_Health;
                 _AIHealthUI.text = "AI Health: " + _AI_Health;
+
+                if (_AI_Health <= 0)
+                {
+                    _gameOver = true;
+                    _AIHealthUI.text = "AI is dead";
+                    _PlayerHealthUI.text = "AI is dead";
+                }
             }
         }
     }
