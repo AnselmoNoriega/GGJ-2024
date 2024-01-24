@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Valve : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool _rotateValveOption;
+
+    public void Choices(bool choice)
     {
-        
+        _rotateValveOption = choice;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Rotate()
     {
-        
+        Vector3 currentRot = transform.rotation.eulerAngles;
+        float rotationAngle = currentRot.y + 180.0f;
+        transform.rotation = Quaternion.Euler(currentRot.x, rotationAngle, currentRot.z);
     }
+
+    public bool ReturnChoice()
+    {
+        bool choice = _rotateValveOption;
+        _rotateValveOption = false;
+        return choice;
+    }
+
 }
