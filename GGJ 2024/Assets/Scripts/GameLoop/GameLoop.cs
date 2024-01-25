@@ -22,11 +22,12 @@ public class GameLoop : MonoBehaviour
         _PlayerHealthUI.text = "Player Health: " + ServiceLocator.Get<Player>().Lives;
         _AIHealthUI.text = "AI Health: " + _AI_Health;
         _loaded = true;
+        ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
     }
 
     private void Update()
     {
-        if(!_loaded || _gameOver)
+        if (!_loaded || _gameOver)
         {
             return;
         }
@@ -44,17 +45,17 @@ public class GameLoop : MonoBehaviour
 
     private void GetOptions()
     {
-        bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice()};
+        bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
 
         _timer = _timePerRound;
-        for(int i = 0; i < 2; ++i)
+        for (int i = 0; i < 2; ++i)
         {
-            if(playerOptions[i])
+            if (playerOptions[i])
             {
                 valves[i].Rotate();
             }
 
-            if(Random.Range(1, 101) <= 50)
+            if (Random.Range(1, 101) <= 50)
             {
                 valves[i].Rotate();
             }
@@ -62,15 +63,17 @@ public class GameLoop : MonoBehaviour
 
         if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
         {
-            if(Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
+            if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
                 _PlayerHealthUI.text = "Player Health: " + health;
 
-                if(health <= 0)
+                if (health <= 0)
                 {
                     FinishGame("Ai");
                 }
+
+                CheckMusic(health);
             }
             else
             {
@@ -82,6 +85,23 @@ public class GameLoop : MonoBehaviour
                     FinishGame("Player");
                 }
             }
+        }
+    }
+
+    private void CheckMusic(int playerHealth)
+    {
+        switch (playerHealth)
+        {
+            case 4:
+                {
+                    ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
+                }
+                return;
+            case 2:
+                {
+                    ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
+                }
+                return;
         }
     }
 

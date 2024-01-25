@@ -3,6 +3,7 @@ using System;
 
 public class SoundManager : MonoBehaviour
 {
+    private Sound _currrentMainSound;
     [SerializeField] private Sound[] _sounds;
 
     private void Awake()
@@ -23,6 +24,25 @@ public class SoundManager : MonoBehaviour
         if(mySound != null)
         {
             mySound.AudioSrc.Play();
+        }
+    }
+
+    public void PlayMainSound(string name)
+    {
+        Sound mySound = Array.Find(_sounds, sound => sound.Name == name);
+        if (mySound != null)
+        {
+            StopMainSound(name);
+            mySound.AudioSrc.Play();
+            _currrentMainSound = mySound;
+        }
+    }
+
+    public void StopMainSound(string name)
+    {
+        if (_currrentMainSound != null)
+        {
+            _currrentMainSound.AudioSrc.Stop();
         }
     }
 }

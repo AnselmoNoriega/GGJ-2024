@@ -187,11 +187,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
-  - Name: 
-    AudioClip: {fileID: 0}
+  - Name: Start
+    AudioClip: {fileID: 8300000, guid: f4d54ee4219a12f46afd88225eb5c1d3, type: 3}
+    Loop: 1
+    Volume: 0.724
+    Pitch: 1.36
+  - Name: Climax
+    AudioClip: {fileID: 8300000, guid: d5dd49b2d82bd9f45911d61c413d4fb1, type: 3}
+    Loop: 1
+    Volume: 0.777
+    Pitch: 1.59
+  - Name: Climax
+    AudioClip: {fileID: 8300000, guid: d5dd49b2d82bd9f45911d61c413d4fb1, type: 3}
     Loop: 0
     Volume: 0
     Pitch: 0
+  - Name: Ending
+    AudioClip: {fileID: 8300000, guid: 7c76aeb3d4eedb046bc0eb719a873581, type: 3}
+    Loop: 1
+    Volume: 0.634
+    Pitch: 0.7
 --- !u!1 &8113379423365251708
 GameObject:
   m_ObjectHideFlags: 0
