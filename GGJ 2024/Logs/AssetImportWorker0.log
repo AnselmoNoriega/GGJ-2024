@@ -579,3 +579,33 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 559.892735 seconds.
+  path: Assets/Scripts/Player/Player.cs
+  artifactKey: Guid(3790de419292c47479fe9912dc67fa32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player/Player.cs using Guid(3790de419292c47479fe9912dc67fa32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '820b4d628ba76182bca786261af07d2d') in 0.019388 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.029157 seconds.
+  path: Assets/Scripts/Managers/LevelLoader.cs
+  artifactKey: Guid(e6bf269f6721a0a4b81f47f6d5062fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Managers/LevelLoader.cs using Guid(e6bf269f6721a0a4b81f47f6d5062fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '344dba7707e7857f5bf1d2e7d95436f0') in 0.007356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.736123 seconds.
+  path: Assets/Scripts/Managers/GameObjManager.cs
+  artifactKey: Guid(2c67b27635a3f0444ad8e0c6249be359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Managers/GameObjManager.cs using Guid(2c67b27635a3f0444ad8e0c6249be359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8392eba651f54cc4b2f48448c70122be') in 0.006548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.358873 seconds.
+  path: Assets/Scripts/GameLoop
+  artifactKey: Guid(da47a82cea42b1b40b94c8f721f3bc92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GameLoop using Guid(da47a82cea42b1b40b94c8f721f3bc92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34b47d885a65714e44461fd7aaf745bd') in 0.006318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.124459 seconds.
+  path: Assets/Scripts/GameLoop/GameLoop.cs
+  artifactKey: Guid(4aac302c13515d946ac530b2289c2784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GameLoop/GameLoop.cs using Guid(4aac302c13515d946ac530b2289c2784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd287b3e9643ded1aa6d257b0f8e842e3') in 0.001694 seconds 
