@@ -1,18 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameLoop : MonoBehaviour
 {
     [SerializeField] private float _timePerRound = 1.0f;
-    [SerializeField] private TextMeshProUGUI _timerUI;
+    [SerializeField] private Slider _timerUI;
     private float _timer;
 
     [SerializeField] private Valve[] valves;
 
-    [SerializeField] private TextMeshProUGUI _PlayerHealthUI;
     [SerializeField] private GameObject _PlayerPointer;
     [SerializeField] private GameObject _AIPointer;
-    [SerializeField] private TextMeshProUGUI _AIHealthUI;
     [SerializeField] private int _AI_Health = 5;
 
     private bool _loaded = false;
@@ -21,10 +20,9 @@ public class GameLoop : MonoBehaviour
     public void Load()
     {
         _timer = _timePerRound;
-        _PlayerHealthUI.text = "Player Health: " + ServiceLocator.Get<Player>().Lives;
-        _AIHealthUI.text = "AI Health: " + _AI_Health;
         _loaded = true;
         ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
+        _timerUI.maxValue = _timePerRound;
     }
 
     private void Update()
@@ -37,7 +35,7 @@ public class GameLoop : MonoBehaviour
         if (_timer >= 0.0f)
         {
             _timer -= Time.deltaTime;
-            _timerUI.text = Mathf.FloorToInt(_timer).ToString();
+            _timerUI.value = _timer;
         }
         else
         {
@@ -69,7 +67,6 @@ public class GameLoop : MonoBehaviour
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
                 _PlayerPointer.transform.localRotation = Quaternion.Euler(_PlayerPointer.transform.localRotation.eulerAngles.x, _PlayerPointer.transform.localRotation.eulerAngles.y, _PlayerPointer.transform.localRotation.eulerAngles.z - 30f);
-                _PlayerHealthUI.text = "Player Health: " + health;
 
                 if (health <= 0)
                 {
@@ -82,7 +79,6 @@ public class GameLoop : MonoBehaviour
             {
                 --_AI_Health;
                 _AIPointer.transform.localRotation = Quaternion.Euler(_AIPointer.transform.localRotation.eulerAngles.x, _AIPointer.transform.localRotation.eulerAngles.y, _AIPointer.transform.localRotation.eulerAngles.z - 30f);
-                _AIHealthUI.text = "AI Health: " + _AI_Health;
 
                 if (_AI_Health <= 0)
                 {
@@ -117,8 +113,5 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
-        _AIHealthUI.text = winner + " is the winner";
-        _PlayerHealthUI.text = winner + " is the winner";
-        _timerUI.text = "";
     }
 }
