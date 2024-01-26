@@ -4,8 +4,18 @@ using UnityEngine.UI;
 
 public class GameLoop : MonoBehaviour
 {
+    enum ValvesLookingDirection
+    {
+        TwoTowardsEnemy,
+        OneTowardsPlayer,
+        TwoTowardsPlayer,
+    }
+
+    [SerializeField] private float _maxGasAmt = 1.0f;
     [SerializeField] private float _timePerRound = 1.0f;
     [SerializeField] private Slider _timerUI;
+    [SerializeField] private Slider[] _healthSliders;
+    private ValvesLookingDirection _pipesLooking2Player = ValvesLookingDirection.OneTowardsPlayer;
     private float _timer;
 
     [SerializeField] private Valve[] valves;
@@ -13,6 +23,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject _PlayerPointer;
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private int _AI_Health = 5;
+    [SerializeField] private GameObject _pauepanel;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -23,6 +34,12 @@ public class GameLoop : MonoBehaviour
         _loaded = true;
         ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
         _timerUI.maxValue = _timePerRound;
+
+        foreach (var healthSlider in _healthSliders)
+        {
+            healthSlider.maxValue = _maxGasAmt;
+            healthSlider.value = _maxGasAmt;
+        }
     }
 
     private void Update()
@@ -40,6 +57,19 @@ public class GameLoop : MonoBehaviour
         else
         {
             GetOptions();
+        }
+
+        _healthSliders[0].value -= Time.deltaTime * (int)_pipesLooking2Player;
+        float val2 = 2 - (int)_pipesLooking2Player;
+        float val = Time.deltaTime * val2;
+        _healthSliders[1].value -= val;
+        if (_healthSliders[0].value <= 0)
+        {
+            FinishGame("Ai");
+        }
+        else if (_healthSliders[1].value <= 0)
+        {
+            FinishGame("Player");
         }
     }
 
@@ -61,30 +91,17 @@ public class GameLoop : MonoBehaviour
             }
         }
 
-        if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
+        if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0 && Mathf.RoundToInt(valves[1].transform.rotation.eulerAngles.y) == 0)
         {
-            if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
-            {
-                int health = --ServiceLocator.Get<Player>().Lives;
-                _PlayerPointer.transform.localRotation = Quaternion.Euler(_PlayerPointer.transform.localRotation.eulerAngles.x, _PlayerPointer.transform.localRotation.eulerAngles.y, _PlayerPointer.transform.localRotation.eulerAngles.z - 30f);
-
-                if (health <= 0)
-                {
-                    FinishGame("Ai");
-                }
-
-                CheckMusic(health);
-            }
-            else
-            {
-                --_AI_Health;
-                _AIPointer.transform.localRotation = Quaternion.Euler(_AIPointer.transform.localRotation.eulerAngles.x, _AIPointer.transform.localRotation.eulerAngles.y, _AIPointer.transform.localRotation.eulerAngles.z - 30f);
-
-                if (_AI_Health <= 0)
-                {
-                    FinishGame("Player");
-                }
-            }
+            _pipesLooking2Player = ValvesLookingDirection.TwoTowardsPlayer;
+        }
+        else if(Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0 || Mathf.RoundToInt(valves[1].transform.rotation.eulerAngles.y) == 0)
+        {
+            _pipesLooking2Player = ValvesLookingDirection.OneTowardsPlayer;
+        }
+        else
+        {
+            _pipesLooking2Player = ValvesLookingDirection.TwoTowardsEnemy;
         }
     }
 
@@ -113,5 +130,6 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
+        _pauepanel.SetActive(true);
     }
 }
