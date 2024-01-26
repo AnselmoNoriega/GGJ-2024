@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private PlayerInputs _playerInput;
     [SerializeField] private TextManager _textManager;
+    [SerializeField] private ParticleManager _particleManager;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class LevelLoader : MonoBehaviour
         ServiceLocator.Register<SoundManager>(_soundManager);
         ServiceLocator.Register<PlayerInputs>(_playerInput);
         ServiceLocator.Register<TextManager>(_textManager);
+        ServiceLocator.Register<ParticleManager>(_particleManager);
 
         _gameLoopManager.Load();
         _playerInput.Load();
@@ -28,5 +30,6 @@ public class LevelLoader : MonoBehaviour
         ServiceLocator.Unregister<GameLoop>();
         ServiceLocator.Unregister<Player>();
         ServiceLocator.Unregister<SoundManager>();
+        ServiceLocator.Unregister<ParticleManager>();
     }
 }
