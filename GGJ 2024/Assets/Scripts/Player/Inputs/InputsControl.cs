@@ -44,6 +44,15 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""37aa4835-d9fa-44f8-a3a7-d6a39ca4b63a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                     ""action"": ""StopWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e206b424-e119-4de5-821a-c737a75d4230"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_SpinWheel = m_Player.FindAction("SpinWheel", throwIfNotFound: true);
         m_Player_StopWheel = m_Player.FindAction("StopWheel", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +160,14 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_SpinWheel;
     private readonly InputAction m_Player_StopWheel;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @InputsControl m_Wrapper;
         public PlayerActions(@InputsControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @SpinWheel => m_Wrapper.m_Player_SpinWheel;
         public InputAction @StopWheel => m_Wrapper.m_Player_StopWheel;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +183,9 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                 @StopWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
                 @StopWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
                 @StopWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
+                @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +196,9 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                 @StopWheel.started += instance.OnStopWheel;
                 @StopWheel.performed += instance.OnStopWheel;
                 @StopWheel.canceled += instance.OnStopWheel;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
             }
         }
     }
@@ -178,5 +207,6 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
     {
         void OnSpinWheel(InputAction.CallbackContext context);
         void OnStopWheel(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

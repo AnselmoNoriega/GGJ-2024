@@ -6,31 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            OpenPauseMenu(panel);
-            Debug.Log("Opening");
-        }
-    }
-    public void SceneLoader(string _scene)
+    [SerializeField] private GameObject _mainMenu;
+    
+    public void ButtonSceneLoader(string _scene)
     {
         SceneManager.LoadScene(_scene);
     }
 
-    public void OpenPauseMenu(GameObject _panel)
+    public void ButtonPanelActive(GameObject _panel)
     {
-        if (panel.activeInHierarchy == true)
+        if (_panel.activeInHierarchy == true)
         {
             _panel.SetActive(false);
+            _mainMenu.SetActive(true);
         }
-
         else
         {
             _panel.SetActive(true);
+            _mainMenu.SetActive(false);
         }
+    }
+
+    public void ButtonExitGame()
+    {
+        Application.Quit();
     }
 }
