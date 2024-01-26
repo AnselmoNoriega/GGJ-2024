@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public void ButtonSceneLoader(string _scene)
     {
         SceneManager.LoadScene(_scene);
+        Time.timeScale = 1;
     }
 
     public void ButtonPanelActive(GameObject _panel)

@@ -14,35 +14,28 @@ public class PlayerInputs : MonoBehaviour
     {
         _inputManager = new InputsControl();
         _interactPauseMenu = _inputManager.Player.PauseMenu;
-        _interactPauseMenu.Enable();
-        _interactPauseMenu.performed += ButtonPauseMenu; 
     }
 
     private void OnEnable()
     {
+        _interactPauseMenu.Enable();
+        _interactPauseMenu.performed += ButtonPauseMenu;
     }
 
     private void OnDisable()
     {
-
+        _interactPauseMenu.Disable();
+        _interactPauseMenu.performed -= ButtonPauseMenu;
     }
 
     private void MethodName(InputAction.CallbackContext input)
     {
-        
-    } 
+
+    }
 
     private void ButtonPauseMenu(InputAction.CallbackContext input)
     {
-        if (_pauseMenu.activeInHierarchy == true)
-        {
-            _pauseMenu.SetActive(false);
-            Time.timeScale = 1;
-        }
-        else
-        {
-            _pauseMenu.SetActive(true);
-            Time.timeScale = 0;
-        }
+        _pauseMenu.SetActive(!_pauseMenu.activeInHierarchy);
+        Time.timeScale = _pauseMenu.activeInHierarchy == false ? 1 : 0;
     }
 }
