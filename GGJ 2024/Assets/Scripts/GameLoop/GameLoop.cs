@@ -12,6 +12,8 @@ public class GameLoop : MonoBehaviour
 
     [SerializeField] private GameObject _PlayerPointer;
     [SerializeField] private GameObject _AIPointer;
+    [SerializeField] private GameObject _panelEnding;
+    [SerializeField] private TextMeshProUGUI _gameOverText;
     [SerializeField] private int _AI_Health = 5;
 
     private bool _loaded = false;
@@ -113,5 +115,16 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
+        _panelEnding.SetActive(true);
+        if (winner == "Player")
+        {
+            _gameOverText.text = "You Escaped!";
+            _gameOverText.color = Color.white;
+        }
+        else
+        {
+            _gameOverText.text = "Game Over";
+            _gameOverText.color = Color.red;
+        }
     }
 }
