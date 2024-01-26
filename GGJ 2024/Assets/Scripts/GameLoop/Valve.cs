@@ -3,11 +3,16 @@ using UnityEngine.UI;
 
 public class Valve : MonoBehaviour
 {
+    [SerializeField] private Animator _animation;
     private bool _rotateValveOption;
 
     public void Choices()
     {
-        _rotateValveOption = true;
+        if (!_rotateValveOption)
+        {
+            _rotateValveOption = true;
+            _animation.Play("ValveTurning");
+        }
     }
 
     public void Rotate()
