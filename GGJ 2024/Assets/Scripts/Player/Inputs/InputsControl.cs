@@ -28,24 +28,6 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
             ""id"": ""c8adf43d-5d7c-41d8-9519-37c787acaa71"",
             ""actions"": [
                 {
-                    ""name"": ""SpinWheel"",
-                    ""type"": ""Button"",
-                    ""id"": ""6ec361dc-83bb-4953-b8a6-0fd57521dc69"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""StopWheel"",
-                    ""type"": ""Button"",
-                    ""id"": ""1fc64945-e709-454b-a4d9-f97c34730173"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""PauseMenu"",
                     ""type"": ""Button"",
                     ""id"": ""37aa4835-d9fa-44f8-a3a7-d6a39ca4b63a"",
@@ -53,31 +35,18 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ContinueText"",
+                    ""type"": ""Button"",
+                    ""id"": ""4831ad0a-5706-4b52-ae25-75f4a02648ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""6da64e16-edc7-49dd-9b44-0805c68f4cbf"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpinWheel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""622eab59-7312-4112-9008-8285dfc66d76"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StopWheel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""e206b424-e119-4de5-821a-c737a75d4230"",
@@ -88,6 +57,17 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80831b2b-e8e0-4265-8b9c-7d037f3156f2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueText"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -96,9 +76,8 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_SpinWheel = m_Player.FindAction("SpinWheel", throwIfNotFound: true);
-        m_Player_StopWheel = m_Player.FindAction("StopWheel", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_ContinueText = m_Player.FindAction("ContinueText", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -158,16 +137,14 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_SpinWheel;
-    private readonly InputAction m_Player_StopWheel;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_ContinueText;
     public struct PlayerActions
     {
         private @InputsControl m_Wrapper;
         public PlayerActions(@InputsControl wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpinWheel => m_Wrapper.m_Player_SpinWheel;
-        public InputAction @StopWheel => m_Wrapper.m_Player_StopWheel;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @ContinueText => m_Wrapper.m_Player_ContinueText;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -177,36 +154,29 @@ public partial class @InputsControl : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @SpinWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinWheel;
-                @SpinWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinWheel;
-                @SpinWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinWheel;
-                @StopWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
-                @StopWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
-                @StopWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopWheel;
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @ContinueText.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinueText;
+                @ContinueText.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinueText;
+                @ContinueText.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinueText;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @SpinWheel.started += instance.OnSpinWheel;
-                @SpinWheel.performed += instance.OnSpinWheel;
-                @SpinWheel.canceled += instance.OnSpinWheel;
-                @StopWheel.started += instance.OnStopWheel;
-                @StopWheel.performed += instance.OnStopWheel;
-                @StopWheel.canceled += instance.OnStopWheel;
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
+                @ContinueText.started += instance.OnContinueText;
+                @ContinueText.performed += instance.OnContinueText;
+                @ContinueText.canceled += instance.OnContinueText;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnSpinWheel(InputAction.CallbackContext context);
-        void OnStopWheel(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnContinueText(InputAction.CallbackContext context);
     }
 }

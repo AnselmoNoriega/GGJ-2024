@@ -142,6 +142,8 @@ MonoBehaviour:
   _gameLoopManager: {fileID: 7468406051541024918}
   _player: {fileID: 4478661393575394337}
   _soundManager: {fileID: 5290112818577904515}
+  _playerInput: {fileID: 950714448493920187}
+  _textManager: {fileID: 0}
 --- !u!1 &7341026856571475660
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,8 +258,8 @@ MonoBehaviour:
   valves:
   - {fileID: 0}
   - {fileID: 0}
-  _PlayerHealthUI: {fileID: 0}
-  _AIHealthUI: {fileID: 0}
+  _PlayerPointer: {fileID: 0}
+  _AIPointer: {fileID: 0}
   _AI_Health: 5
 --- !u!1 &8963873016173889908
 GameObject:
@@ -303,3 +305,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0011f9a0f03d4684da7b273a5ecd04e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseMenu: {fileID: 0}

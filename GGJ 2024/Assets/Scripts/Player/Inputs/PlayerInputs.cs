@@ -6,7 +6,7 @@ public class PlayerInputs : MonoBehaviour
     private InputsControl _inputManager;
 
     private InputAction _interactPauseMenu;
-    //public InputAction name;
+    private InputAction _continueText;
 
     [SerializeField] private GameObject _pauseMenu;
 
@@ -14,23 +14,20 @@ public class PlayerInputs : MonoBehaviour
     {
         _inputManager = new InputsControl();
         _interactPauseMenu = _inputManager.Player.PauseMenu;
+        _continueText = _inputManager.Player.ContinueText;
     }
 
-    private void OnEnable()
+    public void Load()
     {
         _interactPauseMenu.Enable();
         _interactPauseMenu.performed += ButtonPauseMenu;
+        _continueText.performed += ServiceLocator.Get<TextManager>().OnClick;
     }
 
     private void OnDisable()
     {
         _interactPauseMenu.Disable();
         _interactPauseMenu.performed -= ButtonPauseMenu;
-    }
-
-    private void MethodName(InputAction.CallbackContext input)
-    {
-
     }
 
     private void ButtonPauseMenu(InputAction.CallbackContext input)
