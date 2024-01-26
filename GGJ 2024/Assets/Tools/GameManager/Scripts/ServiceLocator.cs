@@ -19,6 +19,19 @@ static public class ServiceLocator
         return (T)target;
     }
 
+    static public void Unregister<T>()
+    {
+        if (m_systems.ContainsKey(typeof(T)))
+        {
+            Debug.Log("Unregistering " + typeof(T));
+            m_systems.Remove(typeof(T));
+        }
+        else
+        {
+            Debug.Log("No object like this " + typeof(T));
+        }
+    }
+
     static public T Get<T>()
     {
         object ret = null;

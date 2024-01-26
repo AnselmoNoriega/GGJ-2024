@@ -16,4 +16,12 @@ public class LevelLoader : MonoBehaviour
 
         _gameLoopManager.Load();
     }
+
+    private void OnDestroy()
+    {
+        ServiceLocator.Unregister<GameObjManager>();
+        ServiceLocator.Unregister<GameLoop>();
+        ServiceLocator.Unregister<Player>();
+        ServiceLocator.Unregister<SoundManager>();
+    }
 }

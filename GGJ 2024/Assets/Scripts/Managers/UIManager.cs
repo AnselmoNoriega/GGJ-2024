@@ -31,4 +31,10 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ButtonResumeGame(GameObject _pauseMenu)
+    {
+        _pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
 }

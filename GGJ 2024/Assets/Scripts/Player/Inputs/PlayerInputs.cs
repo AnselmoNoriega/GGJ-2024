@@ -5,15 +5,17 @@ public class PlayerInputs : MonoBehaviour
 {
     private InputsControl _inputManager;
 
-    private InputAction _pauseMenu;
+    private InputAction _interactPauseMenu;
     //public InputAction name;
+
+    [SerializeField] private GameObject _pauseMenu;
 
     private void Awake()
     {
         _inputManager = new InputsControl();
-        _pauseMenu = _inputManager.Player.PauseMenu;
-        _pauseMenu.Enable();
-        _pauseMenu.performed += ButtonPauseMenu; 
+        _interactPauseMenu = _inputManager.Player.PauseMenu;
+        _interactPauseMenu.Enable();
+        _interactPauseMenu.performed += ButtonPauseMenu; 
     }
 
     private void OnEnable()
@@ -32,6 +34,15 @@ public class PlayerInputs : MonoBehaviour
 
     private void ButtonPauseMenu(InputAction.CallbackContext input)
     {
-
+        if (_pauseMenu.activeInHierarchy == true)
+        {
+            _pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            _pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
