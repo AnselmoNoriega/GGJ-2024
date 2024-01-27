@@ -80,13 +80,14 @@ public class GameLoop : MonoBehaviour
                 _PlayerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
+
                 if (health <= 0)
                 {
                     FinishGame("Ai");
                 }
 
-
                 CheckMusic(health);
+
             }
             else
             {
@@ -136,11 +137,13 @@ public class GameLoop : MonoBehaviour
         {
             _gameOverText.text = "You Escaped!";
             _gameOverText.color = Color.white;
+            ServiceLocator.Get<SoundManager>().PlayMainSound("Win");
         }
         else
         {
             _gameOverText.text = "Game Over";
             _gameOverText.color = Color.red;
+            ServiceLocator.Get<SoundManager>().PlayMainSound("Lose");
         }
     }
 }
