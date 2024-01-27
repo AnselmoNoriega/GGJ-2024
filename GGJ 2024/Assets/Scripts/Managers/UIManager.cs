@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private Button _readyButton;
     
     public void ButtonSceneLoader(string _scene)
     {
@@ -37,5 +38,10 @@ public class UIManager : MonoBehaviour
     {
         _pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void ButtonSetActive(bool active)
+    {
+        _readyButton.interactable = active;
     }
 }

@@ -98,6 +98,7 @@ public class GameLoop : MonoBehaviour
             }
         }
 
+        ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
         _gameOnGoing = true;
     }

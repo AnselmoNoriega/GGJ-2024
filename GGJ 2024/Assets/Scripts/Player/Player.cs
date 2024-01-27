@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 
     public void PlayerReady()
     {
+        ServiceLocator.Get<UIManager>().ButtonSetActive(false);
         ServiceLocator.Get<GameLoop>().EndTime();
     }
 }
