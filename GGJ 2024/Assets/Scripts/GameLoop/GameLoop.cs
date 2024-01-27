@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class GameLoop : MonoBehaviour
 
     private bool _loaded = false;
     private bool _gameOver = false;
+    private bool _gameOnGoing = true;
 
     public void Load()
     {
@@ -29,7 +31,7 @@ public class GameLoop : MonoBehaviour
 
     private void Update()
     {
-        if (!_loaded || _gameOver)
+        if (!_loaded || _gameOver || !_gameOnGoing)
         {
             return;
         }
@@ -41,15 +43,17 @@ public class GameLoop : MonoBehaviour
         }
         else
         {
-            GetOptions();
+            StartCoroutine(GetOptions());
         }
     }
 
-    private void GetOptions()
+    private IEnumerator GetOptions()
     {
         bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
 
         _timer = _timePerRound;
+        _gameOnGoing = false;
+
         for (int i = 0; i < 2; ++i)
         {
             if (playerOptions[i])
@@ -63,12 +67,15 @@ public class GameLoop : MonoBehaviour
             }
         }
 
+        yield return new WaitForSeconds(3);
+
         if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
         {
             if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
                 _PlayerPointer.transform.localRotation = Quaternion.Euler(_PlayerPointer.transform.localRotation.eulerAngles.x, _PlayerPointer.transform.localRotation.eulerAngles.y, _PlayerPointer.transform.localRotation.eulerAngles.z - 30f);
+                StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
 
                 if (health <= 0)
                 {
@@ -88,6 +95,8 @@ public class GameLoop : MonoBehaviour
                 }
             }
         }
+
+        _gameOnGoing = true;
     }
 
     private void CheckMusic(int playerHealth)
