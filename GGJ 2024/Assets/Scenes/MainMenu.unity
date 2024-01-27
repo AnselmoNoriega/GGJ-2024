@@ -833,7 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366.6, y: -174.8}
+  m_AnchoredPosition: {x: 300.6, y: -131.00002}
   m_SizeDelta: {x: 707.80005, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778768382
@@ -858,17 +858,23 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game Design, Narrative, Audio
 
+
     Game Design, Programming
+
 
     Game
     Design, Art, Animation, Audio,
 
+
     Game Design, Programming, Art
 
-    Game Design,
-    Programming
+
+    Game
+    Design, Programming
+
 
     Game Design, Programming, Narrative
+
 
     Audio'
   m_isRightToLeft: 0
@@ -963,7 +969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &786660936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1232,7 +1238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356, y: -174.8}
+  m_AnchoredPosition: {x: -422, y: -131}
   m_SizeDelta: {x: 707.80005, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138338195
@@ -1257,16 +1263,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Kevin Hang -
 
+
     Anselmo Noriega -
+
 
     Anthony "troopsushi" Botsford
     -
 
+
     Marc -
+
 
     Katelylynn -
 
+
     Kyle Brent -
+
 
     Jackie Tran -'
   m_isRightToLeft: 0
@@ -1696,7 +1708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1340459695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1804,8 +1816,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2685,8 +2697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -141.5, y: 63.3}
-  m_SizeDelta: {x: 169.7, y: 80}
+  m_AnchoredPosition: {x: -196, y: 81}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1942464374
 MonoBehaviour:
@@ -3085,7 +3097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 33}
+  m_AnchoredPosition: {x: -73, y: 92}
   m_SizeDelta: {x: 707.80005, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069745040
@@ -3108,7 +3120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITS
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27ae139dca4dd694695fe3d45625c343, type: 2}
   m_sharedMaterial: {fileID: -3671932845908579299, guid: 27ae139dca4dd694695fe3d45625c343,
@@ -3136,13 +3148,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87
-  m_fontSizeBase: 87
+  m_fontSize: 161.2
+  m_fontSizeBase: 161.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3172,7 +3184,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -62.30481, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
