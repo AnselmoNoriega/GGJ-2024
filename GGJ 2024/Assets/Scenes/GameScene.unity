@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0ac825ce0df6c459c434188d1e77c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animation: {fileID: 1321070078}
+  _gauge: {fileID: 1321070073}
   _canisterAnimation: {fileID: 27873630}
 --- !u!95 &27873630
 Animator:
@@ -2639,7 +2639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0ac825ce0df6c459c434188d1e77c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animation: {fileID: 93403220}
+  _gauge: {fileID: 93403215}
   _canisterAnimation: {fileID: 905051430}
 --- !u!65 &905051426
 BoxCollider:
