@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Valve : MonoBehaviour
 {
     [SerializeField] private Animator _animation;
+    [SerializeField] private Animator _canisterAnimation;
     private bool _rotateValveOption;
 
     public void Choices()
@@ -17,9 +18,7 @@ public class Valve : MonoBehaviour
 
     public void Rotate()
     {
-        Vector3 currentRot = transform.rotation.eulerAngles;
-        float rotationAngle = currentRot.y + 180.0f;
-        transform.rotation = Quaternion.Euler(currentRot.x, rotationAngle, currentRot.z);
+        _canisterAnimation.SetTrigger("Rotate");
     }
 
     public bool ReturnChoice()

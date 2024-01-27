@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 27873626}
   - component: {fileID: 27873625}
   - component: {fileID: 27873629}
+  - component: {fileID: 27873630}
   m_Layer: 0
   m_Name: Valve 1
   m_TagString: Untagged
@@ -236,6 +237,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 1321070078}
+  _canisterAnimation: {fileID: 27873630}
+--- !u!95 &27873630
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27873624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14d3409ddfaea7041a6a0dbab3c54461, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &38163287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,6 +2540,7 @@ GameObject:
   - component: {fileID: 905051427}
   - component: {fileID: 905051426}
   - component: {fileID: 905051425}
+  - component: {fileID: 905051430}
   m_Layer: 0
   m_Name: Valve 2
   m_TagString: Untagged
@@ -2538,6 +2561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 93403220}
+  _canisterAnimation: {fileID: 905051430}
 --- !u!65 &905051426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2617,6 +2641,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!95 &905051430
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905051424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da2303447fce09e44a3961b4ba92b506, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1029493919
 GameObject:
   m_ObjectHideFlags: 0
