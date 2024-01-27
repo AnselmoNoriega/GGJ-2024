@@ -91,7 +91,7 @@ public class GameLoop : MonoBehaviour
             else
             {
                 --_AI_Health;
-                var aiHealthAngle = _PlayerPointer.transform.localRotation.eulerAngles;
+                var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
 
                 if (_AI_Health <= 0)
