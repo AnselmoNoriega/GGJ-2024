@@ -73,7 +73,8 @@ public class GameLoop : MonoBehaviour
             if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
-                _PlayerPointer.transform.localRotation = Quaternion.Euler(_PlayerPointer.transform.localRotation.eulerAngles.x, _PlayerPointer.transform.localRotation.eulerAngles.y, _PlayerPointer.transform.localRotation.eulerAngles.z - 30f);
+                var playerHealthsAngle = _PlayerPointer.transform.localRotation.eulerAngles;
+                _PlayerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
                 if (health <= 0)
@@ -87,7 +88,8 @@ public class GameLoop : MonoBehaviour
             else
             {
                 --_AI_Health;
-                _AIPointer.transform.localRotation = Quaternion.Euler(_AIPointer.transform.localRotation.eulerAngles.x, _AIPointer.transform.localRotation.eulerAngles.y, _AIPointer.transform.localRotation.eulerAngles.z - 30f);
+                var aiHealthAngle = _PlayerPointer.transform.localRotation.eulerAngles;
+                _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
 
                 if (_AI_Health <= 0)
                 {
