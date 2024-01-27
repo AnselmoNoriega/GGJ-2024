@@ -51,7 +51,6 @@ public class GameLoop : MonoBehaviour
     {
         bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
 
-        _timer = _timePerRound;
         _gameOnGoing = false;
 
         for (int i = 0; i < 2; ++i)
@@ -96,6 +95,7 @@ public class GameLoop : MonoBehaviour
             }
         }
 
+        _timer = _timePerRound;
         _gameOnGoing = true;
     }
 

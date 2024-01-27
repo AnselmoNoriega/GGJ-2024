@@ -9,6 +9,7 @@ public class PlayerInputs : MonoBehaviour
     private InputAction _continueText;
 
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _gameEndScreen;
 
     private void Awake()
     {
@@ -32,7 +33,15 @@ public class PlayerInputs : MonoBehaviour
 
     private void ButtonPauseMenu(InputAction.CallbackContext input)
     {
-        _pauseMenu.SetActive(!_pauseMenu.activeInHierarchy);
-        Time.timeScale = _pauseMenu.activeInHierarchy == false ? 1 : 0;
+        if (_gameEndScreen.activeInHierarchy == false)
+        {
+            _pauseMenu.SetActive(!_pauseMenu.activeInHierarchy);
+            Time.timeScale = _pauseMenu.activeInHierarchy == false ? 1 : 0;
+        }
+        else
+        {
+            ServiceLocator.Get<UIManager>().ButtonSceneLoader("MainMenu");
+        }
+        
     }
 }
