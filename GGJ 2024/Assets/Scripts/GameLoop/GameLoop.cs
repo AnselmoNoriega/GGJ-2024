@@ -59,14 +59,17 @@ public class GameLoop : MonoBehaviour
             {
                 valves[i].Rotate();
             }
+        }
+        yield return new WaitForSeconds(2);
 
+        for (int i = 0; i < 2; ++i)
+        {
             if (Random.Range(1, 101) <= 50)
             {
                 valves[i].Rotate();
             }
         }
-
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
 
         if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
         {
