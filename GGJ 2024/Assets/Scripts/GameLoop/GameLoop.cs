@@ -75,11 +75,12 @@ public class GameLoop : MonoBehaviour
                 int health = --ServiceLocator.Get<Player>().Lives;
                 _PlayerPointer.transform.localRotation = Quaternion.Euler(_PlayerPointer.transform.localRotation.eulerAngles.x, _PlayerPointer.transform.localRotation.eulerAngles.y, _PlayerPointer.transform.localRotation.eulerAngles.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
-
+                ServiceLocator.Get<VisualEffects>().SetBlur(health);
                 if (health <= 0)
                 {
                     FinishGame("Ai");
                 }
+
 
                 CheckMusic(health);
             }

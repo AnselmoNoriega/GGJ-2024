@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &145053253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145053254}
+  - component: {fileID: 145053255}
+  m_Layer: 0
+  m_Name: VFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145053254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145053253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4382687794540840513}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145053255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145053253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670d7bc6051b23544a00af083d3a633e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heatBlur: {fileID: 0}
 --- !u!1 &2633229145556108375
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +169,7 @@ Transform:
   - {fileID: 1595501538930819536}
   - {fileID: 2882700896354172241}
   - {fileID: 6190034228341403471}
+  - {fileID: 145053254}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,6 +192,8 @@ MonoBehaviour:
   _playerInput: {fileID: 950714448493920187}
   _textManager: {fileID: 0}
   _particleManager: {fileID: 6690435916903691054}
+  _uIManager: {fileID: 0}
+  _visualEffects: {fileID: 145053255}
 --- !u!1 &7341026856571475660
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,3 +403,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 0}
+  _gameEndScreen: {fileID: 0}
