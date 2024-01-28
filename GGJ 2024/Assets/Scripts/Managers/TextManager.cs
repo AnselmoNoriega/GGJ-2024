@@ -25,6 +25,14 @@ public class TextManager : MonoBehaviour
             return;
         }
 
+        _story.BindExternalFunction("playSound", (string soundName) =>
+        {
+            if (ServiceLocator.Get<SoundManager>() != null)
+            {
+                ServiceLocator.Get<SoundManager>().PlaySound(soundName);
+            }
+        });
+
         _story = new Story(textStory.text);
         LoadTextAnim();
     }

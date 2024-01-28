@@ -21853,6 +21853,11 @@ PrefabInstance:
       objectReference: {fileID: 1420529706}
     - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
+      propertyPath: _stories.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
       propertyPath: valves.Array.data[0]
       value: 
       objectReference: {fileID: 27873629}
@@ -21861,6 +21866,16 @@ PrefabInstance:
       propertyPath: valves.Array.data[1]
       value: 
       objectReference: {fileID: 359423929}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _stories.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 08cfdeebe6e2c5346b9b864621f61b86, type: 3}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _stories.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: 85c114320ffbf5745942f4f143c119d4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05fb95f52c37c144c931c7bd4915c3e9, type: 3}
 --- !u!114 &4382687794303259871 stripped
