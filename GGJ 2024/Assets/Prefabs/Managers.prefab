@@ -194,6 +194,7 @@ MonoBehaviour:
   _particleManager: {fileID: 6690435916903691054}
   _uIManager: {fileID: 0}
   _visualEffects: {fileID: 145053255}
+  _cursorClass: {fileID: 0}
 --- !u!1 &7341026856571475660
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,17 +243,17 @@ MonoBehaviour:
   - Name: Start
     AudioClip: {fileID: 8300000, guid: f4d54ee4219a12f46afd88225eb5c1d3, type: 3}
     Loop: 1
-    Volume: 0.724
+    Volume: 0.216
     Pitch: 1.36
   - Name: Climax
     AudioClip: {fileID: 8300000, guid: d5dd49b2d82bd9f45911d61c413d4fb1, type: 3}
     Loop: 1
-    Volume: 0.777
+    Volume: 0.255
     Pitch: 1.59
   - Name: Ending
     AudioClip: {fileID: 8300000, guid: 7c76aeb3d4eedb046bc0eb719a873581, type: 3}
     Loop: 1
-    Volume: 0.634
+    Volume: 0.241
     Pitch: 0.7
   - Name: Win
     AudioClip: {fileID: 8300000, guid: 63364ebb282edb74ca7214543e25fc85, type: 3}
@@ -265,34 +266,109 @@ MonoBehaviour:
     Volume: 0.634
     Pitch: 0.7
   - Name: PlayerLose
-    AudioClip: {fileID: 8300000, guid: 0193a42375d86374daf4f48c4ffe0d99, type: 3}
+    AudioClip: {fileID: 8300000, guid: 9ac6da774607ac04fae575ec03119b11, type: 3}
     Loop: 0
-    Volume: 0.621
+    Volume: 0.941
     Pitch: 0.7
   - Name: PrisonerLose
     AudioClip: {fileID: 8300000, guid: 980f54ba1be0f55409be07fd6932e657, type: 3}
     Loop: 0
-    Volume: 0.634
+    Volume: 0.945
     Pitch: 0.7
   - Name: TurnSignal
     AudioClip: {fileID: 8300000, guid: 407f8e15952cbce409099bc2f78da3c5, type: 3}
     Loop: 1
-    Volume: 0.611
+    Volume: 0.89
     Pitch: 0.7
   - Name: ReadyButton
     AudioClip: {fileID: 8300000, guid: a95bc802a6635324ea6dee0880aa8c36, type: 3}
     Loop: 0
-    Volume: 0.634
+    Volume: 0.902
     Pitch: 0.7
   - Name: RoundStart
     AudioClip: {fileID: 8300000, guid: 8e1e4800356c68b47b2c096570543a2e, type: 3}
     Loop: 0
-    Volume: 0.825
+    Volume: 0.899
+    Pitch: 0.7
+  - Name: PipeTurning
+    AudioClip: {fileID: 8300000, guid: 1a5ae5ee2ed9f814d978d220a9bbbd95, type: 3}
+    Loop: 0
+    Volume: 1
+    Pitch: 0.7
+  - Name: PipeSuccess
+    AudioClip: {fileID: 8300000, guid: 87b6dccfc5544b54c8a4704db37f0aae, type: 3}
+    Loop: 0
+    Volume: 0.879
+    Pitch: 0.7
+  - Name: ValveTurn
+    AudioClip: {fileID: 8300000, guid: f7956959f974ab0449a1abe6f485db35, type: 3}
+    Loop: 0
+    Volume: 0.831
+    Pitch: 0.7
+  - Name: OnePipeTurn
+    AudioClip: {fileID: 8300000, guid: 162652498d4a2924f912726694f53d1a, type: 3}
+    Loop: 0
+    Volume: 0.634
     Pitch: 0.7
   - Name: Maniacal1
     AudioClip: {fileID: 8300000, guid: e0bf04188ad56954f96adc563326efa0, type: 3}
     Loop: 0
     Volume: 0.634
+    Pitch: 0.7
+  - Name: Maniacal2
+    AudioClip: {fileID: 8300000, guid: ac1ed66718e70a64ea62926302ecfb0f, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Delirious
+    AudioClip: {fileID: 8300000, guid: 3028ba6bb2f86f941b1b3d619c8b871e, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: DryChuckle
+    AudioClip: {fileID: 8300000, guid: de28b3149f053fd44ad78c2b25df2225, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Giggle1
+    AudioClip: {fileID: 8300000, guid: 6784049fce249f448b612a712b8020de, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Giggle2
+    AudioClip: {fileID: 8300000, guid: a1ced200be05d9143918f769cdbb2051, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: GrimChuckle
+    AudioClip: {fileID: 8300000, guid: a4256b8ccb0e07a4883feffbff2bee6c, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Growing
+    AudioClip: {fileID: 8300000, guid: 15f8af26cea661941b5d8f3f4224d946, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Hysteria
+    AudioClip: {fileID: 8300000, guid: dc7723f95df88aa4487a05b76c2fefcf, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Talking
+    AudioClip: {fileID: 8300000, guid: 0597ea55a0d7e844eaa9acc6b625088e, type: 3}
+    Loop: 0
+    Volume: 0.331
+    Pitch: 0.7
+  - Name: Click
+    AudioClip: {fileID: 8300000, guid: 6c005e91219f5cd4bb5fae4bfe9658c9, type: 3}
+    Loop: 0
+    Volume: 1
+    Pitch: 0.7
+  - Name: Hover
+    AudioClip: {fileID: 8300000, guid: 176b8208fcb56e94ea430bd69524b535, type: 3}
+    Loop: 0
+    Volume: 1
     Pitch: 0.7
 --- !u!1 &8113379423365251708
 GameObject:
@@ -349,7 +425,9 @@ MonoBehaviour:
   _gameOverEnding: {fileID: 0}
   _aiAnimator: {fileID: 0}
   _timerUI: {fileID: 0}
-  _turnText: {fileID: 0}
+  _playerTurnUI: {fileID: 0}
+  _prisonerTurnUI: {fileID: 0}
+  _gasOverlay: {fileID: 0}
   _blinkingTime: 0.5
   _storiesMidHealth:
   - {fileID: 4900000, guid: 85c114320ffbf5745942f4f143c119d4, type: 3}

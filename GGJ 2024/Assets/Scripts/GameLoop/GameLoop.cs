@@ -24,6 +24,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private Slider _timerUI;
     [SerializeField] private GameObject _playerTurnUI;
     [SerializeField] private GameObject _prisonerTurnUI;
+    [SerializeField] private Image _gasOverlay;
 
     [Space, Header("Info for Valves")]
     [SerializeField] private float _blinkingTime = 0.3f;
@@ -142,6 +143,10 @@ private bool _playerGotGassed = false;
                 ServiceLocator.Get<SoundManager>().PlaySound("PlayerLose");
                 ServiceLocator.Get<SoundManager>().PlaySound("PipeSuccess");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
+
+                var overlayColor = _gasOverlay.color;
+                overlayColor.a = 0.2f * (5 - health);
+                _gasOverlay.color = overlayColor;
 
                 if (health <= 0)
                 {
