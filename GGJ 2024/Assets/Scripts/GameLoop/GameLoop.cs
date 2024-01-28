@@ -101,6 +101,7 @@ private bool _playerGotGassed = false;
             if (playerOptions[i])
             {
                 _valves[i].Rotate();
+                ServiceLocator.Get<SoundManager>().PlaySound("PipeTurning");
             }
         }
 
@@ -111,6 +112,7 @@ private bool _playerGotGassed = false;
             if (prisonerOptions[i])
             {
                 _valves[i].Rotate();
+                ServiceLocator.Get<SoundManager>().PlaySound("PipeTurning");
             }
         }
 
@@ -135,6 +137,7 @@ private bool _playerGotGassed = false;
                 _playerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
                 ServiceLocator.Get<SoundManager>().PlaySound("PlayerLose");
+                ServiceLocator.Get<SoundManager>().PlaySound("PipeSuccess");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
 
                 if (health <= 0)
@@ -151,6 +154,7 @@ private bool _playerGotGassed = false;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
                 ServiceLocator.Get<SoundManager>().PlaySound("PrisonerLose");
+                ServiceLocator.Get<SoundManager>().PlaySound("PipeSuccess");
 
                 if (_AI_Health <= 0)
                 {

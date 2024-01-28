@@ -156,6 +156,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 744481111}
+  - {fileID: 601746281}
   - {fileID: 1400146998}
   m_Father: {fileID: 851841150}
   m_RootOrder: 1
@@ -6698,7 +6699,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1134312060}
-  - {fileID: 601746281}
   - {fileID: 679220012}
   m_Father: {fileID: 851841150}
   m_RootOrder: 0
@@ -6847,19 +6847,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601746280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1603571228}
   - {fileID: 700811079}
-  m_Father: {fileID: 529538285}
+  m_Father: {fileID: 27393656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 267.18}
+  m_AnchoredPosition: {x: 0, y: 391.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &601746282
@@ -7035,7 +7035,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 529538285}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9476,7 +9476,7 @@ PrefabInstance:
     - target: {fileID: 3200982493772924982, guid: 079adb1b08054b94e8c1094d6b6da387,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3200982493772924982, guid: 079adb1b08054b94e8c1094d6b6da387,
         type: 3}
@@ -21992,7 +21992,7 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[0].Volume
-      value: 0.55
+      value: 0.394
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -22022,12 +22022,12 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[1].Volume
-      value: 0.563
+      value: 0.417
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[2].Volume
-      value: 0.576
+      value: 0.446
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -22062,17 +22062,17 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[11].Volume
-      value: 0.69
+      value: 0.821
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[12].Volume
-      value: 0.634
+      value: 0.775
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[13].Volume
-      value: 0.634
+      value: 0.795
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
