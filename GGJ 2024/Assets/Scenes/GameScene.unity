@@ -325,7 +325,7 @@ Transform:
   - {fileID: 825619574}
   - {fileID: 1102060813}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &27873629
 MonoBehaviour:
@@ -771,7 +771,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorValveEnter
           m_Mode: 1
@@ -787,7 +787,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -1140,7 +1140,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -1555,7 +1555,7 @@ Transform:
   - {fileID: 505711813}
   - {fileID: 1777085245}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &359748356
 GameObject:
@@ -6455,7 +6455,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &477311174
 GameObject:
@@ -6810,7 +6810,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &598664330
 SpriteRenderer:
@@ -7080,7 +7080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679220011
 GameObject:
@@ -7635,7 +7635,7 @@ Transform:
   - {fileID: 1200650527}
   - {fileID: 1690562895}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &807278406
 GameObject:
@@ -7668,7 +7668,7 @@ Transform:
   - {fileID: 1064904610}
   - {fileID: 1764947735}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &825619573
 GameObject:
@@ -7785,7 +7785,7 @@ Transform:
   - {fileID: 27393656}
   - {fileID: 701772350}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869461571
 GameObject:
@@ -8053,7 +8053,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -8069,7 +8069,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -8991,7 +8991,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -9007,7 +9007,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -9191,7 +9191,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorValveEnter
           m_Mode: 1
@@ -9207,7 +9207,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -9302,7 +9302,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1340090703
 Animator:
@@ -9727,7 +9727,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -9743,7 +9743,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -10080,7 +10080,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -10096,7 +10096,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -11015,87 +11015,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1765892892
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741963, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_Name
-      value: CursorManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2861c0e7e51179e4893b29479729b242, type: 3}
---- !u!114 &1765892893 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-    type: 3}
-  m_PrefabInstance: {fileID: 1765892892}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4f7a17ad016f047bef7c8946c52966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1777085244
 GameObject:
   m_ObjectHideFlags: 0
@@ -21384,7 +21303,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1962559708
 SpriteRenderer:
@@ -21590,7 +21509,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -21606,7 +21525,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1765892893}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -21664,7 +21583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068380685
 GameObject:
@@ -21883,7 +21802,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _cursorClass
       value: 
-      objectReference: {fileID: 1765892893}
+      objectReference: {fileID: 0}
     - target: {fileID: 7239524561238711391, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _textManager
