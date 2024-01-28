@@ -66,100 +66,35 @@ public class Prisoner
         }
 
         // Check for any patterns
-        if (depth > 4 && CheckQuadPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 4, depth);
-            return currentPattern[currentPatternIndex];
-        }
-        if (depth > 3 && CheckTriPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 3, depth);
-            return currentPattern[currentPatternIndex];
-        }
-        if (depth > 2 && CheckBiPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 2, depth);
-            return currentPattern[currentPatternIndex];
-        }
-        if (CheckUniPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 1, depth);
-            return currentPattern[currentPatternIndex];
+        for (int i = depth - 1; i > 0; i--) {
+            if (CheckPattern(movesToAnalyze, i)) {
+                SetCurrentPattern(movesToAnalyze, i, depth);
+                return currentPattern[currentPatternIndex];
+            }
         }
         return 0xff;
     }
 
-    private bool CheckQuadPattern(List<byte> movesToAnalyze) {
-        for (int h = 4; h < movesToAnalyze.Count; h++) {
+    private bool CheckPattern(List<byte> movesToAnalyze, int length) {
+        for (int h = length; h < movesToAnalyze.Count; h++) {
             bool foundPattern = true;
 
             for (int i = h; i < movesToAnalyze.Count; i++) {
-                if (movesToAnalyze[i] != movesToAnalyze[i-4]) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-length]) {
                     foundPattern = false;
                     break;
                 }
             }
 
             if (foundPattern) {
-                patternOffset = h - 4;
+                patternOffset = h - length;
                 return true;
             }
         }
 
         return false;
     }
-    private bool CheckTriPattern(List<byte> movesToAnalyze) {
-        for (int h = 3; h < movesToAnalyze.Count; h++) {
-            bool foundPattern = true;
-
-            for (int i = h; i < movesToAnalyze.Count; i++) {
-                if (movesToAnalyze[i] != movesToAnalyze[i-3]) {
-                    foundPattern = false;
-                    break;
-                }
-            }
-
-            if (foundPattern) {
-                patternOffset = h - 3;
-                return true;
-            }
-        }
-
-        return false;
-    }
-    private bool CheckBiPattern(List<byte> movesToAnalyze) {
-        for (int h = 2; h < movesToAnalyze.Count; h++) {
-            bool foundPattern = true;
-
-            for (int i = h; i < movesToAnalyze.Count; i++) {
-                if (movesToAnalyze[i] != movesToAnalyze[i-2]) {
-                    foundPattern = false;
-                    break;
-                }
-            }
-
-            if (foundPattern) {
-                patternOffset = h - 2;
-                return true;
-            }
-        }
-        return false;
-    }
-    private bool CheckUniPattern(List<byte> movesToAnalyze) {
-        for (int h = 1; h < movesToAnalyze.Count; h++) {
-            bool foundPattern = true;
-
-            for (int i = h; i < movesToAnalyze.Count; i++) {
-                if (movesToAnalyze[i] != movesToAnalyze[i-1]) {
-                    foundPattern = false;
-                    break;
-                }
-            }
-
-            if (foundPattern) {
-                patternOffset = h - 1;
-                return true;
-            }
-        }
-        return false;
-    }
-
+    
     private void SetCurrentPattern(List<byte> movesToAnalyze, int length, int depth) {
         currentPattern = new List<byte>();
         for (int i = 0; i < length; i++) {
