@@ -7,6 +7,8 @@ public class Prisoner
     private List<byte> playerMoves;
     private List<byte> currentPattern = null;
     private int currentPatternIndex = -1;
+    private int depthLimit = 5;
+    private int patternOffset = 0;
 
     public Prisoner() {
         playerMoves = new List<byte>();
@@ -21,6 +23,7 @@ public class Prisoner
         playerMoves.Add(playerMove);
         if (currentPattern != null && currentPattern[currentPatternIndex] != playerMove) {
             currentPattern = null;
+            patternOffset = 0;
             Debug.Log("Pattern scrapped"); // Debug
         }
     }
@@ -34,6 +37,7 @@ public class Prisoner
     private byte CalculateMove(bool valve1, bool valve2) {
         byte anticipated = CheckForPattern();
         if (anticipated == 0xff) {
+            Debug.Log("random");
             return (byte)UnityEngine.Random.Range(0, 4);
         } else {
             return CounterPlayerMove(valve1, valve2, anticipated);
@@ -48,19 +52,30 @@ public class Prisoner
             return currentPattern[currentPatternIndex];
         }
 
-        // Choose random number of past player moves to analyze [2-5]
-        int depth = UnityEngine.Random.Range(2, 6);
-        if (playerMoves.Count < depth) {
+        Debug.Log("player moves " + playerMoves.Count);
+        int depth = depthLimit;
+        if (playerMoves.Count <= 1) {
             return 0xff;
-        }
+        } else if (playerMoves.Count < depthLimit) {
+            depth = playerMoves.Count;
+        } 
             
         // Get list of relevant moves
         List<byte> movesToAnalyze = new List<byte>();
+        // Debug.Log("depth: " + depth);
         for (int i = playerMoves.Count - depth; i < playerMoves.Count; i++) {
+            // Debug.Log("===");
+            // Debug.Log("i: " + i);
+            // Debug.Log("playermove[i]: " + playerMoves[i]);
+            // Debug.Log("===");
             movesToAnalyze.Add(playerMoves[i]);
         }
 
         // Check for any patterns
+        if (depth > 4 && CheckQuadPattern(movesToAnalyze)) {
+            SetCurrentPattern(movesToAnalyze, 4, depth);
+            return currentPattern[currentPatternIndex];
+        }
         if (depth > 3 && CheckTriPattern(movesToAnalyze)) {
             SetCurrentPattern(movesToAnalyze, 3, depth);
             return currentPattern[currentPatternIndex];
@@ -76,38 +91,93 @@ public class Prisoner
         return 0xff;
     }
 
-    private bool CheckTriPattern(List<byte> movesToAnalyze) {
-        for (int i = 3; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-3]) {
-                return false;
-            }
-        }
-        return true;
-    }
+    private bool CheckQuadPattern(List<byte> movesToAnalyze) {
+        for (int h = 4; h < movesToAnalyze.Count; h++) {
+            bool foundPattern = true;
 
-    private bool CheckBiPattern(List<byte> movesToAnalyze) {
-        for (int i = 2; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-2]) {
-                return false;
+            for (int i = h; i < movesToAnalyze.Count; i++) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-4]) {
+                    foundPattern = false;
+                    break;
+                }
+            }
+
+            if (foundPattern) {
+                patternOffset = h - 4;
+                return true;
             }
         }
-        return true;
+
+        return false;
+    }
+    private bool CheckTriPattern(List<byte> movesToAnalyze) {
+        for (int h = 3; h < movesToAnalyze.Count; h++) {
+            bool foundPattern = true;
+
+            for (int i = h; i < movesToAnalyze.Count; i++) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-3]) {
+                    foundPattern = false;
+                    break;
+                }
+            }
+
+            if (foundPattern) {
+                patternOffset = h - 3;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private bool CheckBiPattern(List<byte> movesToAnalyze) {
+        for (int h = 2; h < movesToAnalyze.Count; h++) {
+            bool foundPattern = true;
+
+            for (int i = h; i < movesToAnalyze.Count; i++) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-2]) {
+                    foundPattern = false;
+                    break;
+                }
+            }
+
+            if (foundPattern) {
+                patternOffset = h - 2;
+                return true;
+            }
+        }
+        return false;
     }
     private bool CheckUniPattern(List<byte> movesToAnalyze) {
-        for (int i = 1; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-1]) {
-                return false;
+        for (int h = 1; h < movesToAnalyze.Count; h++) {
+            bool foundPattern = true;
+
+            for (int i = h; i < movesToAnalyze.Count; i++) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-1]) {
+                    foundPattern = false;
+                    break;
+                }
+            }
+
+            if (foundPattern) {
+                patternOffset = h - 1;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private void SetCurrentPattern(List<byte> movesToAnalyze, int length, int depth) {
+        PrintPlayerMoves();
         currentPattern = new List<byte>();
+        Debug.Log("depth: " + depth);
+        Debug.Log("pattern offset: " + patternOffset);
+        Debug.Log("length: " + length);
         for (int i = 0; i < length; i++) {
-            currentPattern.Add(movesToAnalyze[i]);
+            Debug.Log("moves to analyze: " + movesToAnalyze[i + patternOffset]);
+            currentPattern.Add(movesToAnalyze[i + patternOffset]);
         }
-        currentPatternIndex = depth % length;
+        currentPatternIndex = length == 1 ? 0 : depth - patternOffset - length;
+        Debug.Log("current pattern index: " + currentPatternIndex);
         Debug.Log("Pattern found! Next player move: " + currentPattern[currentPatternIndex]); // Debug
     }
 
@@ -119,6 +189,7 @@ public class Prisoner
         if (((anticipated & 0x02) == 0x02) == valve2) {
             move += 0x02;
         }
+        Debug.Log((int) move);
         return move;
     }
 
