@@ -22848,6 +22848,11 @@ PrefabInstance:
       objectReference: {fileID: 632822592}
     - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
+      propertyPath: _14winsEnding
+      value: 
+      objectReference: {fileID: 884459932}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
       propertyPath: _escapeEnding
       value: 
       objectReference: {fileID: 174373064}
