@@ -317,7 +317,7 @@ public class GameLoop : MonoBehaviour
 
         if (ServiceLocator.Get<GameManager>().wins == 14)
         {
-            _14winsEnding.SetActive(true);
+            _14WinsEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("14Wins");
         }
 
