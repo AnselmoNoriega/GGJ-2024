@@ -1,1 +1,3 @@
-[ Giggles knowingly ]
+EXTERNAL playSound(soundName)
+~ playSound("Giggle1")
+[ Giggles ]

@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["^They say laughter is the best medicine. Who knew medicine made the best laughter??","\n","^[ Hysterical laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["^They say laughter is the best medicine. Who knew medicine made the best laughter??","\n","ev","str","^Hysteria","/str",{"x()":"playSound","exArgs":1},"pop","/ev","\n","^[ Hysterical laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

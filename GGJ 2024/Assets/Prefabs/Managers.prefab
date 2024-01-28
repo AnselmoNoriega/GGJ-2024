@@ -264,6 +264,31 @@ MonoBehaviour:
     Loop: 1
     Volume: 0.634
     Pitch: 0.7
+  - Name: PlayerLose
+    AudioClip: {fileID: 8300000, guid: 0193a42375d86374daf4f48c4ffe0d99, type: 3}
+    Loop: 0
+    Volume: 0.621
+    Pitch: 0.7
+  - Name: PrisonerLose
+    AudioClip: {fileID: 8300000, guid: 980f54ba1be0f55409be07fd6932e657, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: TurnSignal
+    AudioClip: {fileID: 8300000, guid: 407f8e15952cbce409099bc2f78da3c5, type: 3}
+    Loop: 1
+    Volume: 0.611
+    Pitch: 0.7
+  - Name: ReadyButton
+    AudioClip: {fileID: 8300000, guid: a95bc802a6635324ea6dee0880aa8c36, type: 3}
+    Loop: 0
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: RoundStart
+    AudioClip: {fileID: 8300000, guid: 8e1e4800356c68b47b2c096570543a2e, type: 3}
+    Loop: 0
+    Volume: 0.825
+    Pitch: 0.7
   - Name: Maniacal1
     AudioClip: {fileID: 8300000, guid: e0bf04188ad56954f96adc563326efa0, type: 3}
     Loop: 0
@@ -315,13 +340,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AI_Health: 5
   _timePerRound: 15
-  valves:
+  _valves:
   - {fileID: 0}
   - {fileID: 0}
-  _PlayerPointer: {fileID: 0}
+  _playerPointer: {fileID: 0}
   _AIPointer: {fileID: 0}
   _escapeEnding: {fileID: 0}
   _gameOverEnding: {fileID: 0}
+  _aiAnimator: {fileID: 0}
   _timerUI: {fileID: 0}
   _turnText: {fileID: 0}
   _blinkingTime: 0.5

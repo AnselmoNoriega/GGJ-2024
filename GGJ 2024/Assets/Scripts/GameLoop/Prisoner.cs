@@ -14,6 +14,7 @@ public class Prisoner
         playerMoves = new List<byte>();
     }
 
+
     public void LogPlayerMove(bool valve1move, bool valve2move) {
         LogPlayerMove((byte)((valve1move ? 1 : 0) + (valve2move ? 2 : 0)));
     }
