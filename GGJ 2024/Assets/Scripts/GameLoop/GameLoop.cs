@@ -22,7 +22,8 @@ public class GameLoop : MonoBehaviour
 
     [Space, Header("UI References")]
     [SerializeField] private Slider _timerUI;
-    [SerializeField] private TextMeshProUGUI _turnText;
+    [SerializeField] private GameObject _playerTurnUI;
+    [SerializeField] private GameObject _prisonerTurnUI;
 
     [Space, Header("Info for Valves")]
     [SerializeField] private float _blinkingTime = 0.3f;
@@ -97,9 +98,7 @@ private bool _playerGotGassed = false;
         _gameOnGoing = false;
         ServiceLocator.Get<CursorClass>().SetPipesTurning(true);
 
-        _turnText.gameObject.SetActive(true);
-        _turnText.SetText("YOUR MOVE");
-        _turnText.color = Color.white;
+        _playerTurnUI.SetActive(true);
 
         for (int i = 0; i < 2; ++i)
         {
@@ -121,9 +120,8 @@ private bool _playerGotGassed = false;
             }
         }
 
-        _turnText.gameObject.SetActive(true);
-        _turnText.SetText("PRISONER MOVE");
-        _turnText.color = Color.red;
+        _playerTurnUI.SetActive(false);
+        _prisonerTurnUI.SetActive(true);
 
         yield return new WaitForSeconds(2.5f);
 
@@ -131,7 +129,7 @@ private bool _playerGotGassed = false;
         valveValues[0] = Mathf.RoundToInt(_valves[0].transform.rotation.y) == 0;
         valveValues[1] = Mathf.RoundToInt(_valves[1].transform.rotation.y) == 0;
 
-        _turnText.gameObject.SetActive(false);
+        _prisonerTurnUI.SetActive(false);
 
         if (valveValues[0] == valveValues[1])
         {
@@ -210,7 +208,7 @@ private bool _playerGotGassed = false;
         _valves[1].EnableValves();
         _gameOnGoing = true;
         ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
-        ServiceLocator.Get<CursorClass>().SetPipesTurning(false);
+        ServiceLocator.Get<CursorClass>().TogglePauseMenu();
     }
 
     private void TellStory()
