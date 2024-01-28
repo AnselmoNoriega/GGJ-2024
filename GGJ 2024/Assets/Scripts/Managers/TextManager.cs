@@ -6,7 +6,6 @@ using TMPro;
 public class TextManager : MonoBehaviour
 {
     [Header("Story Info")]
-    public TextAsset TextAsset;
     private Story _story;
 
     [Space, Header("Word Info")]
@@ -17,10 +16,16 @@ public class TextManager : MonoBehaviour
     private int _currentWord = 0;
     private string _currentStoryLine = "";
 
-    private void OnEnable()
+    public void EnableStory(TextAsset textStory)
     {
-        _story = new Story(TextAsset.text);
+        if(textStory == null)
+        {
+            ServiceLocator.Get<GameLoop>().ContinueGame();
+            gameObject.SetActive(false);
+            return;
+        }
 
+        _story = new Story(textStory.text);
         LoadTextAnim();
     }
 
@@ -59,6 +64,7 @@ public class TextManager : MonoBehaviour
         }
         else if(!_loadingText && !_story.canContinue)
         {
+            ServiceLocator.Get<GameLoop>().ContinueGame();
             gameObject.SetActive(false);
         }
         else

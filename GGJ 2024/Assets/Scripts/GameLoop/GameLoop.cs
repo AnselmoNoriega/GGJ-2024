@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Ink.Runtime;
 
 public class GameLoop : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private float _blinkingTime = 0.3f;
     private float _blinkingArrowTimer;
     private bool _shouldBlink = true;
+
+    [Space, Header("Stories")]
+    [SerializeField] private List<TextAsset> _stories;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -115,24 +120,8 @@ public class GameLoop : MonoBehaviour
 
         ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
-        _gameOnGoing = true;
-    }
 
-    private void CheckMusic(int playerHealth)
-    {
-        switch (playerHealth)
-        {
-            case 4:
-                {
-                    ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
-                }
-                return;
-            case 2:
-                {
-                    ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
-                }
-                return;
-        }
+        ServiceLocator.Get<TextManager>().EnableStory(null);
     }
 
     private void BlinkingTimer()
@@ -154,7 +143,32 @@ public class GameLoop : MonoBehaviour
 
     public void EndTime()
     {
-        _timer = 0.0f;
+        if (_timer > 0.0f && _gameOnGoing)
+        {
+            _timer = 0.0f;
+        }
+    }
+
+    public void ContinueGame()
+    {
+        _gameOnGoing = true;
+    }
+
+    private void CheckMusic(int playerHealth)
+    {
+        switch (playerHealth)
+        {
+            case 4:
+                {
+                    ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
+                }
+                return;
+            case 2:
+                {
+                    ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
+                }
+                return;
+        }
     }
 
     private void FinishGame(string winner)

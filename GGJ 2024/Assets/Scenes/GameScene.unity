@@ -1789,7 +1789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405bcee19a64fef4faaedb5bbb150b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextAsset: {fileID: 0}
   _storyText: {fileID: 700811080}
   _wordSpeed: 0.05
 --- !u!1 &633900134
