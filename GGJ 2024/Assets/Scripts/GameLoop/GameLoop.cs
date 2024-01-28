@@ -18,6 +18,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private GameObject _escapeEnding;
     [SerializeField] private GameObject _gameOverEnding;
+    [SerializeField] private Animator _aiAnimator;
 
     [Space, Header("UI References")]
     [SerializeField] private Slider _timerUI;
@@ -151,6 +152,7 @@ private bool _playerGotGassed = false;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
                 ServiceLocator.Get<SoundManager>().PlaySound("PrisonerLose");
+                _aiAnimator.SetTrigger("Laugh");
 
                 if (_AI_Health <= 0)
                 {
