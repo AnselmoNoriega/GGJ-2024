@@ -327,11 +327,13 @@ private bool _playerGotGassed = false;
         {
             case 4:
                 {
+                    Debug.Log("Switching Music");
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
                 }
                 return;
-            case 3:
+            case 2:
                 {
+                    Debug.Log("Switching Music");
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
                 }
                 return;
