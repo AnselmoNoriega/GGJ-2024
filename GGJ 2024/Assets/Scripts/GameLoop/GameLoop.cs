@@ -5,17 +5,25 @@ using UnityEngine.UI;
 
 public class GameLoop : MonoBehaviour
 {
+    [Header("Loop Info")]
+    [SerializeField] private int _AI_Health = 5;
     [SerializeField] private float _timePerRound = 1.0f;
-    [SerializeField] private Slider _timerUI;
     private float _timer;
 
+    [Space, Header("Object References")]
     [SerializeField] private Valve[] valves;
-
     [SerializeField] private GameObject _PlayerPointer;
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private GameObject _panelEnding;
+
+    [Space, Header("UI References")]
+    [SerializeField] private Slider _timerUI;
     [SerializeField] private TextMeshProUGUI _gameOverText;
-    [SerializeField] private int _AI_Health = 5;
+
+    [Space, Header("Info for Valves")]
+    [SerializeField] private float _blinkingTime = 0.3f;
+    private float _blinkingArrowTimer;
+    private bool _shouldBlink = true;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -27,6 +35,7 @@ public class GameLoop : MonoBehaviour
         _loaded = true;
         ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
         _timerUI.maxValue = _timePerRound;
+        _blinkingArrowTimer = _blinkingTime;
     }
 
     private void Update()
@@ -45,6 +54,8 @@ public class GameLoop : MonoBehaviour
         {
             StartCoroutine(GetOptions());
         }
+
+        BlinkingTimer();
     }
 
     private IEnumerator GetOptions()
@@ -121,6 +132,23 @@ public class GameLoop : MonoBehaviour
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
                 }
                 return;
+        }
+    }
+
+    private void BlinkingTimer()
+    {
+        if (_blinkingArrowTimer <= 0.0f)
+        {
+            _blinkingArrowTimer = _blinkingTime;
+            for (int i = 0; i < 2; ++i)
+            {
+                valves[i].TimerForArowBlink(_shouldBlink);
+            }
+            _shouldBlink = !_shouldBlink;
+        }
+        else
+        {
+            _blinkingArrowTimer -= Time.deltaTime;
         }
     }
 
