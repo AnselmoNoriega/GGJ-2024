@@ -121,7 +121,7 @@ public class GameLoop : MonoBehaviour
         ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
 
-        ServiceLocator.Get<TextManager>().EnableStory(null);
+        TellStory();
     }
 
     private void BlinkingTimer()
@@ -152,6 +152,19 @@ public class GameLoop : MonoBehaviour
     public void ContinueGame()
     {
         _gameOnGoing = true;
+    }
+
+    private void TellStory()
+    {
+        if (_stories.Count > 0)
+        {
+            var story = _stories[Random.Range(0, _stories.Count)];
+            ServiceLocator.Get<TextManager>().EnableStory(story);
+            _stories.Remove(story);
+            return;
+        }
+
+        ServiceLocator.Get<TextManager>().EnableStory(null);
     }
 
     private void CheckMusic(int playerHealth)
