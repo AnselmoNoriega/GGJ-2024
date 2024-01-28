@@ -13,8 +13,8 @@ public class GameLoop : MonoBehaviour
     private float _timer;
 
     [Space, Header("Object References")]
-    [SerializeField] private Valve[] valves;
-    [SerializeField] private GameObject _PlayerPointer;
+    [SerializeField] private Valve[] _valves;
+    [SerializeField] private GameObject _playerPointer;
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private GameObject _escapeEnding;
     [SerializeField] private GameObject _gameOverEnding;
@@ -85,7 +85,7 @@ private bool _playerGotGassed = false;
 
     private IEnumerator GetOptions()
     {
-        bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
+        bool[] playerOptions = { _valves[0].ReturnChoice(), _valves[1].ReturnChoice() };
         prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
@@ -100,8 +100,7 @@ private bool _playerGotGassed = false;
         {
             if (playerOptions[i])
             {
-                ServiceLocator.Get<SoundManager>().PlaySound("PipeTurning");
-                valves[i].Rotate();
+                _valves[i].Rotate();
             }
         }
 
@@ -111,8 +110,7 @@ private bool _playerGotGassed = false;
         {
             if (prisonerOptions[i])
             {
-                ServiceLocator.Get<SoundManager>().PlaySound("PipeTurning");
-                valves[i].Rotate();
+                _valves[i].Rotate();
             }
         }
 
@@ -123,8 +121,8 @@ private bool _playerGotGassed = false;
         yield return new WaitForSeconds(2.5f);
 
         // Values are locked in
-        valveValues[0] = Mathf.RoundToInt(valves[0].transform.rotation.y) == 0;
-        valveValues[1] = Mathf.RoundToInt(valves[1].transform.rotation.y) == 0;
+        valveValues[0] = Mathf.RoundToInt(_valves[0].transform.rotation.y) == 0;
+        valveValues[1] = Mathf.RoundToInt(_valves[1].transform.rotation.y) == 0;
 
         _turnText.gameObject.SetActive(false);
 
@@ -133,11 +131,10 @@ private bool _playerGotGassed = false;
             if (valveValues[0])
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
-                var playerHealthsAngle = _PlayerPointer.transform.localRotation.eulerAngles;
-                _PlayerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
+                var playerHealthsAngle = _playerPointer.transform.localRotation.eulerAngles;
+                _playerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
                 ServiceLocator.Get<SoundManager>().PlaySound("PlayerLose");
-                ServiceLocator.Get<SoundManager>().PlaySound("PipeSuccess");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
 
                 if (health <= 0)
@@ -148,27 +145,18 @@ private bool _playerGotGassed = false;
                 CheckMusic(health);
                 _playerGotGassed = true;
             }
-
-            else if (valveValues[0] != valveValues[1])
-            {
-                ServiceLocator.Get<SoundManager>().PlaySound("OnePipeTurned");
-            }
-
             else
             {
                 --_AI_Health;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
                 ServiceLocator.Get<SoundManager>().PlaySound("PrisonerLose");
-                ServiceLocator.Get<SoundManager>().PlaySound("PipeSuccess");
 
                 if (_AI_Health <= 0)
                 {
                     FinishGame("Player");
                 }
-
-
-          }
+            }
         }
 
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
@@ -184,7 +172,7 @@ private bool _playerGotGassed = false;
             _blinkingArrowTimer = _blinkingTime;
             for (int i = 0; i < 2; ++i)
             {
-                valves[i].TimerForArowBlink(_shouldBlink);
+                _valves[i].TimerForArowBlink(_shouldBlink);
             }
             _shouldBlink = !_shouldBlink;
         }
@@ -204,6 +192,8 @@ private bool _playerGotGassed = false;
 
     public void ContinueGame()
     {
+        _valves[0].EnableValves();
+        _valves[1].EnableValves();
         _gameOnGoing = true;
         ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
         ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
