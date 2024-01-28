@@ -7,6 +7,8 @@ public class Prisoner
     private List<byte> playerMoves;
     private List<byte> currentPattern = null;
     private int currentPatternIndex = -1;
+    private int depthLimit = 5;
+    private int patternOffset = 0;
 
     public Prisoner() {
         playerMoves = new List<byte>();
@@ -48,11 +50,12 @@ public class Prisoner
             return currentPattern[currentPatternIndex];
         }
 
-        // Choose random number of past player moves to analyze [2-5]
-        int depth = UnityEngine.Random.Range(2, 6);
-        if (playerMoves.Count < depth) {
+        int depth = depthLimit;
+        if (playerMoves.Count <= 1) {
             return 0xff;
-        }
+        } else if (playerMoves.Count < depthLimit) {
+            depth = playerMoves.Count;
+        } 
             
         // Get list of relevant moves
         List<byte> movesToAnalyze = new List<byte>();
@@ -60,54 +63,42 @@ public class Prisoner
             movesToAnalyze.Add(playerMoves[i]);
         }
 
-        // Check for any patterns
-        if (depth > 3 && CheckTriPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 3, depth);
-            return currentPattern[currentPatternIndex];
-        }
-        if (depth > 2 && CheckBiPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 2, depth);
-            return currentPattern[currentPatternIndex];
-        }
-        if (CheckUniPattern(movesToAnalyze)) {
-            SetCurrentPattern(movesToAnalyze, 1, depth);
-            return currentPattern[currentPatternIndex];
+        // Check for any sub patterns
+        for (int i = depth - 1; i > 0; i--) {
+            if (CheckSubPattern(movesToAnalyze, i)) {
+                SetCurrentPattern(movesToAnalyze, i, depth);
+                return currentPattern[currentPatternIndex];
+            }
         }
         return 0xff;
     }
 
-    private bool CheckTriPattern(List<byte> movesToAnalyze) {
-        for (int i = 3; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-3]) {
-                return false;
-            }
-        }
-        return true;
-    }
+    private bool CheckSubPattern(List<byte> movesToAnalyze, int length) {
+        for (int h = length; h < movesToAnalyze.Count; h++) {
+            bool foundPattern = true;
 
-    private bool CheckBiPattern(List<byte> movesToAnalyze) {
-        for (int i = 2; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-2]) {
-                return false;
+            for (int i = h; i < movesToAnalyze.Count; i++) {
+                if (movesToAnalyze[i] != movesToAnalyze[i-length]) {
+                    foundPattern = false;
+                    break;
+                }
             }
-        }
-        return true;
-    }
-    private bool CheckUniPattern(List<byte> movesToAnalyze) {
-        for (int i = 1; i < movesToAnalyze.Count; i++) {
-            if (movesToAnalyze[i] != movesToAnalyze[i-1]) {
-                return false;
-            }
-        }
-        return true;
-    }
 
+            if (foundPattern) {
+                patternOffset = h - length;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     private void SetCurrentPattern(List<byte> movesToAnalyze, int length, int depth) {
         currentPattern = new List<byte>();
         for (int i = 0; i < length; i++) {
-            currentPattern.Add(movesToAnalyze[i]);
+            currentPattern.Add(movesToAnalyze[i + patternOffset]);
         }
-        currentPatternIndex = depth % length;
+        currentPatternIndex = length == 1 ? 0 : depth - patternOffset - length;
     }
 
     private byte CounterPlayerMove(bool valve1, bool valve2, int anticipated) {
@@ -118,6 +109,7 @@ public class Prisoner
         if (((anticipated & 0x02) == 0x02) == valve2) {
             move += 0x02;
         }
+        Debug.Log((int) move);
         return move;
     }
 
