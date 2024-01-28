@@ -37,7 +37,6 @@ public class Prisoner
     private byte CalculateMove(bool valve1, bool valve2) {
         byte anticipated = CheckForPattern();
         if (anticipated == 0xff) {
-            Debug.Log("random");
             return (byte)UnityEngine.Random.Range(0, 4);
         } else {
             return CounterPlayerMove(valve1, valve2, anticipated);
@@ -52,7 +51,6 @@ public class Prisoner
             return currentPattern[currentPatternIndex];
         }
 
-        Debug.Log("player moves " + playerMoves.Count);
         int depth = depthLimit;
         if (playerMoves.Count <= 1) {
             return 0xff;
@@ -62,12 +60,7 @@ public class Prisoner
             
         // Get list of relevant moves
         List<byte> movesToAnalyze = new List<byte>();
-        // Debug.Log("depth: " + depth);
         for (int i = playerMoves.Count - depth; i < playerMoves.Count; i++) {
-            // Debug.Log("===");
-            // Debug.Log("i: " + i);
-            // Debug.Log("playermove[i]: " + playerMoves[i]);
-            // Debug.Log("===");
             movesToAnalyze.Add(playerMoves[i]);
         }
 
@@ -167,17 +160,11 @@ public class Prisoner
     }
 
     private void SetCurrentPattern(List<byte> movesToAnalyze, int length, int depth) {
-        PrintPlayerMoves();
         currentPattern = new List<byte>();
-        Debug.Log("depth: " + depth);
-        Debug.Log("pattern offset: " + patternOffset);
-        Debug.Log("length: " + length);
         for (int i = 0; i < length; i++) {
-            Debug.Log("moves to analyze: " + movesToAnalyze[i + patternOffset]);
             currentPattern.Add(movesToAnalyze[i + patternOffset]);
         }
         currentPatternIndex = length == 1 ? 0 : depth - patternOffset - length;
-        Debug.Log("current pattern index: " + currentPatternIndex);
         Debug.Log("Pattern found! Next player move: " + currentPattern[currentPatternIndex]); // Debug
     }
 
