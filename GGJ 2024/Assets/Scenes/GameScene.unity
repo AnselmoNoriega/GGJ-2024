@@ -7340,15 +7340,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27ae139dca4dd694695fe3d45625c343, type: 2}
+  m_sharedMaterial: {fileID: -3671932845908579299, guid: 27ae139dca4dd694695fe3d45625c343,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8139,15 +8140,16 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27ae139dca4dd694695fe3d45625c343, type: 2}
+  m_sharedMaterial: {fileID: -3671932845908579299, guid: 27ae139dca4dd694695fe3d45625c343,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9798,6 +9800,18 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4382687794303259872}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1465633305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9811,7 +9825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 0.627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9853,34 +9867,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: OnCursorInteractableEnter
-          m_Mode: 1
+        - m_Target: {fileID: 4382687794303259872}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Hover
             m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: ReturnCursorToNormal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &1516543943
 GameObject:
   m_ObjectHideFlags: 0
@@ -10151,6 +10153,18 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4382687794303259872}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1532576451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10164,7 +10178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 0.627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10206,34 +10220,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: OnCursorInteractableEnter
-          m_Mode: 1
+        - m_Target: {fileID: 4382687794303259872}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Hover
             m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: ReturnCursorToNormal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &1549313839
 GameObject:
   m_ObjectHideFlags: 0
@@ -11058,15 +11060,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27ae139dca4dd694695fe3d45625c343, type: 2}
+  m_sharedMaterial: {fileID: -3671932845908579299, guid: 27ae139dca4dd694695fe3d45625c343,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21512,6 +21515,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4382687794303259872}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1999953826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21525,7 +21540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 0.627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -21567,34 +21582,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: OnCursorInteractableEnter
-          m_Mode: 1
+        - m_Target: {fileID: 4382687794303259872}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Hover
             m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
-          m_MethodName: ReturnCursorToNormal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1
@@ -21849,7 +21852,7 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.size
-      value: 24
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -21920,6 +21923,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _sounds.Array.data[23].Name
       value: Talking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[24].Name
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[25].Name
+      value: Hover
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -21994,6 +22007,16 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[23].Pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[24].Pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[25].Pitch
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
@@ -22098,6 +22121,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
+      propertyPath: _sounds.Array.data[24].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[25].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
       propertyPath: _sounds.Array.data[5].AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9ac6da774607ac04fae575ec03119b11, type: 3}
@@ -22171,6 +22204,16 @@ PrefabInstance:
       propertyPath: _sounds.Array.data[23].AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0597ea55a0d7e844eaa9acc6b625088e, type: 3}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[24].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c005e91219f5cd4bb5fae4bfe9658c9, type: 3}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[25].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 176b8208fcb56e94ea430bd69524b535, type: 3}
     - target: {fileID: 6690435916903691054, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _gasEffectHolder
