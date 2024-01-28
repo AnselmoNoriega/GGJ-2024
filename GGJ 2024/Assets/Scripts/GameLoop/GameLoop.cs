@@ -18,6 +18,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private GameObject _escapeEnding;
     [SerializeField] private GameObject _gameOverEnding;
+    [SerializeField] private GameObject _14winsEnding;
     [SerializeField] private Animator _aiAnimator;
 
     [Space, Header("UI References")]
@@ -56,6 +57,8 @@ public class GameLoop : MonoBehaviour
     private bool _loaded = false;
     private bool _gameOver = false;
     private bool _gameOnGoing = true;
+
+    public static int wins;
 
     public void Load()
     {
@@ -353,11 +356,20 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
-        if (winner == "Player")
+        ServiceLocator.Get<GameManager>().wins++;
+
+        if (ServiceLocator.Get<GameManager>().wins >= 16)
+        {
+            _14winsEnding.SetActive(true);
+            ServiceLocator.Get<SoundManager>().PlayMainSound("14Wins");
+        }
+
+        else if (winner == "Player")
         {
             _escapeEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Win");
         }
+
         else
         {
             _gameOverEnding.SetActive(true);
