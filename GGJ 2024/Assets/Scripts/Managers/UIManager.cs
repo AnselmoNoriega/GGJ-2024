@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public void ButtonSceneLoader(string _scene)
     {
         SceneManager.LoadScene(_scene);
+        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
         Time.timeScale = 1;
     }
 
@@ -21,11 +22,13 @@ public class UIManager : MonoBehaviour
         {
             _panel.SetActive(false);
             _mainMenu.SetActive(true);
+            ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
         }
         else
         {
             _panel.SetActive(true);
             _mainMenu.SetActive(false);
+            ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
         }
     }
 
@@ -37,6 +40,7 @@ public class UIManager : MonoBehaviour
     public void ButtonResumeGame(GameObject _pauseMenu)
     {
         _pauseMenu.SetActive(false);
+        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
         Time.timeScale = 1;
     }
 

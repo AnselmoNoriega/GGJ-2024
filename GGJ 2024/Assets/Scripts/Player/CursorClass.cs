@@ -16,6 +16,10 @@ public class CursorClass : MonoBehaviour
     [SerializeField] private Texture2D _cursorValve;
     [SerializeField] private Vector2 _cursorValveHotSpot;
 
+    [Header("Cursor Frustrated")]
+    [SerializeField] private Texture2D _cursorFrustrated;
+    [SerializeField] private Vector2 _cursorFrustratedHotSpot;
+
     void Start()
     {
         Cursor.SetCursor(_cursorNormal, Vector2.zero, CursorMode.Auto);
@@ -29,6 +33,11 @@ public class CursorClass : MonoBehaviour
     public void OnCursorValveEnter()
     {
         Cursor.SetCursor(_cursorValve, _cursorValveHotSpot, CursorMode.Auto);
+    }
+
+    public void CursorFrustratedWhilePipesTurning()
+    {
+        Cursor.SetCursor(_cursorFrustrated, _cursorFrustratedHotSpot, CursorMode.Auto);
     }
 
     public void ReturnCursorToNormal()

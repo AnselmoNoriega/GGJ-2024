@@ -5744,6 +5744,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorFrustrated
+      value: 
+      objectReference: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorValveHotSpot.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorFrustratedHotSpot.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorFrustratedHotSpot.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorInteractableHotSpot.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
+        type: 3}
+      propertyPath: _cursorInteractableHotSpot.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5631826143366741963, guid: 2861c0e7e51179e4893b29479729b242,
         type: 3}
       propertyPath: m_Name
@@ -16500,6 +16530,11 @@ PrefabInstance:
       propertyPath: _uIManager
       value: 
       objectReference: {fileID: 529538289}
+    - target: {fileID: 7239524561238711391, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _cursorClass
+      value: 
+      objectReference: {fileID: 1765892893}
     - target: {fileID: 7239524561238711391, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _textManager

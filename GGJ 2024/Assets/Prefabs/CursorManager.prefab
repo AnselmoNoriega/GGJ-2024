@@ -48,5 +48,5 @@ MonoBehaviour:
   _cursorNormalHotSpot: {x: 40, y: 40}
   _cursorInteractable: {fileID: 2800000, guid: e4f91ea749148664db027f005f19388e, type: 3}
   _cursorInteractableHotSpot: {x: 40, y: 40}
-  _cursorValve: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
+  _cursorValve: {fileID: 2800000, guid: 78468d1a167fb154b9a97a7185aa0873, type: 3}
   _cursorValveHotSpot: {x: 40, y: 40}
