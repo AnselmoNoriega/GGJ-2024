@@ -38,6 +38,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void StopSound(string name)
+    {
+        Sound mySound = Array.Find(_sounds, sound => sound.Name == name);
+        if (mySound != null)
+        {
+            mySound.AudioSrc.Stop();
+        }
+    }
+
     public void StopMainSound(string name)
     {
         if (_currrentMainSound != null)

@@ -56,7 +56,6 @@ private bool _playerGotGassed = false;
     {
         _timer = _timePerRound;
         _loaded = true;
-        ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
         _timerUI.maxValue = _timePerRound;
         _blinkingArrowTimer = _blinkingTime;
         valveValues = new bool[] { true, false };
@@ -135,7 +134,7 @@ private bool _playerGotGassed = false;
                 var playerHealthsAngle = _playerPointer.transform.localRotation.eulerAngles;
                 _playerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
-                ServiceLocator.Get<SoundManager>().PlayMainSound("PlayerLose");
+                ServiceLocator.Get<SoundManager>().PlaySound("PlayerLose");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
 
                 if (health <= 0)
@@ -151,7 +150,7 @@ private bool _playerGotGassed = false;
                 --_AI_Health;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
-                ServiceLocator.Get<SoundManager>().PlayMainSound("PrisonerLose");
+                ServiceLocator.Get<SoundManager>().PlaySound("PrisonerLose");
 
                 if (_AI_Health <= 0)
                 {
@@ -196,6 +195,7 @@ private bool _playerGotGassed = false;
         _valves[0].EnableValves();
         _valves[1].EnableValves();
         _gameOnGoing = true;
+        ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
         ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
         ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
     }
@@ -319,7 +319,7 @@ private bool _playerGotGassed = false;
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
                 }
                 return;
-            case 2:
+            case 3:
                 {
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
                 }

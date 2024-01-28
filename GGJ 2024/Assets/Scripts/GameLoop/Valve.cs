@@ -35,12 +35,14 @@ public class Valve : MonoBehaviour
     {
         if (!_rotateValveOption && _gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().PlaySound("TurnSignal");
             _turnArrows.SetActive(true);
             _rotateValveOption = true;
             _animation.Play("ValveTurning");
         }
         else if (_gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().StopSound("TurnSignal");
             _arrowColor.a = 0.15f;
             _blinkingArrow.color = _arrowColor;
             _turnArrows.SetActive(false);
@@ -62,6 +64,7 @@ public class Valve : MonoBehaviour
         _turnArrows.SetActive(false);
         bool choice = _rotateValveOption;
         _rotateValveOption = false;
+        ServiceLocator.Get<SoundManager>().StopSound("TurnSignal");
         return choice;
     }
 
