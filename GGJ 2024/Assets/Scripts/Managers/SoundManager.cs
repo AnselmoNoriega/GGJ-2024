@@ -47,6 +47,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void ChangePitch(string name, float pitchAmt)
+    {
+        Sound mySound = Array.Find(_sounds, sound => sound.Name == name);
+        if (mySound != null)
+        {
+            mySound.AudioSrc.pitch = pitchAmt;
+        }
+    }
+
     public void StopMainSound(string name)
     {
         if (_currrentMainSound != null)

@@ -6875,6 +6875,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storyText: {fileID: 700811080}
   _wordSpeed: 0.05
+  _frequencyLevel: 2
+  _minPitch: 0.5
+  _maxPitch: 2
 --- !u!1 &633900134
 GameObject:
   m_ObjectHideFlags: 0
@@ -21786,7 +21789,7 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.size
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -21852,6 +21855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _sounds.Array.data[22].Name
       value: Hysteria
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[23].Name
+      value: Talking
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
@@ -21921,6 +21929,11 @@ PrefabInstance:
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _sounds.Array.data[22].Pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[23].Pitch
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
@@ -22020,6 +22033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
+      propertyPath: _sounds.Array.data[23].Volume
+      value: 0.634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
       propertyPath: _sounds.Array.data[10].AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1a5ae5ee2ed9f814d978d220a9bbbd95, type: 3}
@@ -22083,6 +22101,11 @@ PrefabInstance:
       propertyPath: _sounds.Array.data[22].AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: dc7723f95df88aa4487a05b76c2fefcf, type: 3}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[23].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0597ea55a0d7e844eaa9acc6b625088e, type: 3}
     - target: {fileID: 6690435916903691054, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _gasEffectHolder
