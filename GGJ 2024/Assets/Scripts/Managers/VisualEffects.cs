@@ -12,19 +12,19 @@ public class VisualEffects : MonoBehaviour
             case 3:
                 {
                     _heatBlur.SetFloat("Blur", 0);
-                    _heatBlur.SetVector2("Distortion", new Vector2(8.5f, -0.3f));
+                    _heatBlur.SetVector2("Distortion", new Vector2(0.54f, 0f));
                 }
                 return;
             case 1:
                 {
                     _heatBlur.SetFloat("Blur", 0.07f);
-                    _heatBlur.SetVector2("Distortion", new Vector2(10.3f, 0.24f));
+                    _heatBlur.SetVector2("Distortion", new Vector2(0.54f, 0f));
                 }
                 return;
             case 0:
                 {
-                    _heatBlur.SetFloat("Blur", -0.09f);
-                    _heatBlur.SetVector2("Distortion", new Vector2(17.5f, 12.87f));
+                    _heatBlur.SetFloat("Blur", 0.14f);
+                    _heatBlur.SetVector2("Distortion", new Vector2(2.22f, 0f));
                 }
                 return;
 

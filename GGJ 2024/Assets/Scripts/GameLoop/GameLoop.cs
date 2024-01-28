@@ -95,8 +95,7 @@ private bool _playerGotGassed = false;
         prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
-        ServiceLocator.Get<CursorClass>().SetPipesTurningToTrue();
-        ServiceLocator.Get<CursorClass>().CursorFrustratedWhilePipesTurning();
+        ServiceLocator.Get<CursorClass>().SetPipesTurning(true);
 
         _turnText.gameObject.SetActive(true);
         _turnText.SetText("YOUR MOVE");
@@ -169,6 +168,10 @@ private bool _playerGotGassed = false;
                 }
             }
         }
+        else
+        {
+            ServiceLocator.Get<SoundManager>().PlaySound("OnePipeTurn");
+        }
 
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
         _timer = _timePerRound;
@@ -207,8 +210,7 @@ private bool _playerGotGassed = false;
         _valves[1].EnableValves();
         _gameOnGoing = true;
         ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
-        ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
-        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
+        ServiceLocator.Get<CursorClass>().SetPipesTurning(false);
     }
 
     private void TellStory()
@@ -327,11 +329,13 @@ private bool _playerGotGassed = false;
         {
             case 4:
                 {
+                    Debug.Log("Switching Music");
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
                 }
                 return;
-            case 3:
+            case 2:
                 {
+                    Debug.Log("Switching Music");
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
                 }
                 return;

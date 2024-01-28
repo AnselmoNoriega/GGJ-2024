@@ -16,6 +16,11 @@ public class TextManager : MonoBehaviour
     private int _currentWord = 0;
     private string _currentStoryLine = "";
 
+    [Space, Header("Sounds")]
+    [Range(0, 5), SerializeField] private int _frequencyLevel;
+    [Range(-3, 3), SerializeField] private float _minPitch;
+    [Range(-3, 3), SerializeField] private float _maxPitch;
+
     public void EnableStory(TextAsset textStory)
     {
         if (textStory == null)
@@ -45,6 +50,7 @@ public class TextManager : MonoBehaviour
 
             if (_timer <= 0.0f && _currentWord < _story.currentText.Length)
             {
+                PlaySound(_currentWord);
                 _storyText.text += _currentStoryLine[_currentWord++];
                 _timer = _wordSpeed;
             }
@@ -85,6 +91,16 @@ public class TextManager : MonoBehaviour
         {
             _loadingText = false;
             _storyText.text = _currentStoryLine;
+        }
+    }
+
+    private void PlaySound(int wordCount)
+    {
+        if(wordCount % _frequencyLevel == 0)
+        {
+            ServiceLocator.Get<SoundManager>().StopSound("Talking");
+            ServiceLocator.Get<SoundManager>().ChangePitch("Talking", Random.Range(_minPitch, _maxPitch));
+            ServiceLocator.Get<SoundManager>().PlaySound("Talking");
         }
     }
 
