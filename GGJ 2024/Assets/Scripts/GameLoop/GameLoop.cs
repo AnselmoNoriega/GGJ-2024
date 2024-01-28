@@ -16,11 +16,12 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private Valve[] valves;
     [SerializeField] private GameObject _PlayerPointer;
     [SerializeField] private GameObject _AIPointer;
-    [SerializeField] private GameObject _panelEnding;
+    [SerializeField] private GameObject _escapeEnding;
+    [SerializeField] private GameObject _gameOverEnding;
 
     [Space, Header("UI References")]
     [SerializeField] private Slider _timerUI;
-    [SerializeField] private TextMeshProUGUI _gameOverText;
+    [SerializeField] private TextMeshProUGUI _turnText;
 
     [Space, Header("Info for Valves")]
     [SerializeField] private float _blinkingTime = 0.3f;
@@ -81,6 +82,10 @@ public class GameLoop : MonoBehaviour
         ServiceLocator.Get<CursorClass>().SetPipesTurningToTrue();
         ServiceLocator.Get<CursorClass>().CursorFrustratedWhilePipesTurning();
 
+        _turnText.gameObject.SetActive(true);
+        _turnText.SetText("YOUR MOVE");
+        _turnText.color = Color.white;
+
         for (int i = 0; i < 2; ++i)
         {
             if (playerOptions[i])
@@ -88,6 +93,7 @@ public class GameLoop : MonoBehaviour
                 valves[i].Rotate();
             }
         }
+
         yield return new WaitForSeconds(2);
 
         for (int i = 0; i < 2; ++i)
@@ -97,11 +103,18 @@ public class GameLoop : MonoBehaviour
                 valves[i].Rotate();
             }
         }
+
+        _turnText.gameObject.SetActive(true);
+        _turnText.SetText("PRISONER MOVE");
+        _turnText.color = Color.red;
+
         yield return new WaitForSeconds(2.5f);
 
         // Values are locked in
         valveValues[0] = Mathf.RoundToInt(valves[0].transform.rotation.y) == 0;
         valveValues[1] = Mathf.RoundToInt(valves[1].transform.rotation.y) == 0;
+
+        _turnText.gameObject.SetActive(false);
 
         if (valveValues[0] == valveValues[1])
         {
@@ -206,17 +219,14 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
-        _panelEnding.SetActive(true);
         if (winner == "Player")
         {
-            _gameOverText.text = "You Escaped!";
-            _gameOverText.color = Color.white;
+            _escapeEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Win");
         }
         else
         {
-            _gameOverText.text = "Game Over";
-            _gameOverText.color = Color.red;
+            _gameOverEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Lose");
         }
     }
