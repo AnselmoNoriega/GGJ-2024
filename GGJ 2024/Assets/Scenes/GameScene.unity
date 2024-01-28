@@ -5744,36 +5744,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorFrustrated
-      value: 
-      objectReference: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorValveHotSpot.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorFrustratedHotSpot.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorFrustratedHotSpot.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorInteractableHotSpot.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: _cursorInteractableHotSpot.y
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5631826143366741963, guid: 2861c0e7e51179e4893b29479729b242,
         type: 3}
       propertyPath: m_Name
@@ -16430,96 +16400,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[2].Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[2].Name
-      value: Ending
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[3].Name
-      value: Win
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[4].Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[4].Name
-      value: Lose
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[5].Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[5].Name
-      value: Lose
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[2].Pitch
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[4].Pitch
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[5].Pitch
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[2].Volume
-      value: 0.634
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[4].Volume
-      value: 0.634
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[5].Volume
-      value: 0.634
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[2].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7c76aeb3d4eedb046bc0eb719a873581, type: 3}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[3].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 63364ebb282edb74ca7214543e25fc85, type: 3}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[4].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 12d168eae559e0940acf97df658ce77c, type: 3}
-    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _sounds.Array.data[5].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7c76aeb3d4eedb046bc0eb719a873581, type: 3}
     - target: {fileID: 6690435916903691054, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _gasEffectHolder
@@ -16555,11 +16435,6 @@ PrefabInstance:
       propertyPath: _panelEnding
       value: 
       objectReference: {fileID: 1420529706}
-    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
-        type: 3}
-      propertyPath: _blinkingTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _gameOverText

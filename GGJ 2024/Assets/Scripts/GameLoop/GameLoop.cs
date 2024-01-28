@@ -78,6 +78,8 @@ public class GameLoop : MonoBehaviour
         prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
+        ServiceLocator.Get<CursorClass>().SetPipesTurningToTrue();
+        ServiceLocator.Get<CursorClass>().CursorFrustratedWhilePipesTurning();
 
         for (int i = 0; i < 2; ++i)
         {
@@ -167,6 +169,8 @@ public class GameLoop : MonoBehaviour
     public void ContinueGame()
     {
         _gameOnGoing = true;
+        ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
+        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
     }
 
     private void TellStory()

@@ -42,6 +42,7 @@ public class PlayerInputs : MonoBehaviour
         {
             _pauseMenu.SetActive(!_pauseMenu.activeInHierarchy);
             Time.timeScale = _pauseMenu.activeInHierarchy == false ? 1 : 0;
+            ServiceLocator.Get<CursorClass>().SetGamePaused();
         }
         else
         {
