@@ -63,9 +63,9 @@ public class Prisoner
             movesToAnalyze.Add(playerMoves[i]);
         }
 
-        // Check for any patterns
+        // Check for any sub patterns
         for (int i = depth - 1; i > 0; i--) {
-            if (CheckPattern(movesToAnalyze, i)) {
+            if (CheckSubPattern(movesToAnalyze, i)) {
                 SetCurrentPattern(movesToAnalyze, i, depth);
                 return currentPattern[currentPatternIndex];
             }
@@ -73,7 +73,7 @@ public class Prisoner
         return 0xff;
     }
 
-    private bool CheckPattern(List<byte> movesToAnalyze, int length) {
+    private bool CheckSubPattern(List<byte> movesToAnalyze, int length) {
         for (int h = length; h < movesToAnalyze.Count; h++) {
             bool foundPattern = true;
 
