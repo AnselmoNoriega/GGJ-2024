@@ -21,6 +21,7 @@ public class TextManager : MonoBehaviour
         if (textStory == null)
         {
             ServiceLocator.Get<GameLoop>().ContinueGame();
+            ServiceLocator.Get<UIManager>().ButtonSetActive(true);
             gameObject.SetActive(false);
             return;
         }
@@ -76,6 +77,7 @@ public class TextManager : MonoBehaviour
         }
         else if (!_loadingText && !_story.canContinue)
         {
+            ServiceLocator.Get<UIManager>().ButtonSetActive(true);
             ServiceLocator.Get<GameLoop>().ContinueGame();
             gameObject.SetActive(false);
         }

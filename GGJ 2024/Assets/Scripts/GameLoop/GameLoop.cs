@@ -30,12 +30,23 @@ public class GameLoop : MonoBehaviour
     private bool[] valveValues = new bool[] { false, false }; // True faces the player, false faces the prisoner
 
     [Space, Header("Stories")]
-    [SerializeField] private List<TextAsset> _stories;
+    [SerializeField] private List<TextAsset> _storiesMidHealth;
+    [SerializeField] private List<TextAsset> _storiesLowHealth;
+
+    [SerializeField] private List<TextAsset> _storiesOneHealth;
+    [SerializeField] private List<TextAsset> _storiesTwoHealth;
+    [SerializeField] private List<TextAsset> _storiesThreeHealth;
+    [SerializeField] private List<TextAsset> _storiesFourHealth;
+
+    [SerializeField] private List<TextAsset> _notTurningHint;
+    [SerializeField] private List<TextAsset> _turningHint;
+    [SerializeField] private List<TextAsset> _playerGassed;
 
     // PRISONER LOGIC
     private Prisoner prisoner;
     private bool[] prisonerOptions;
 
+private bool _playerGotGassed = false;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -132,7 +143,7 @@ public class GameLoop : MonoBehaviour
                 }
 
                 CheckMusic(health);
-
+                _playerGotGassed = true;
             }
             else
             {
@@ -148,7 +159,6 @@ public class GameLoop : MonoBehaviour
         }
 
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
-        ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
 
         TellStory();
@@ -188,12 +198,109 @@ public class GameLoop : MonoBehaviour
 
     private void TellStory()
     {
-        if (_stories.Count > 0)
+        if (_AI_Health  == 5)
         {
-            var story = _stories[Random.Range(0, _stories.Count)];
-            ServiceLocator.Get<TextManager>().EnableStory(story);
-            _stories.Remove(story);
-            return;
+            if (_storiesMidHealth.Count > 0)
+            {
+                var story = _storiesMidHealth[Random.Range(0, _storiesMidHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+        }
+        else if(_AI_Health >= 3)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesMidHealth.Count > 0)
+            {
+                var story = _storiesMidHealth[Random.Range(0, _storiesMidHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+            else if (_notTurningHint[_AI_Health - 2] && randomNum % 2 == 0)
+            {
+                var story = _notTurningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = false;
+                prisonerOptions[1] = false;
+                return;
+            }
+            else if (_turningHint[_AI_Health - 2])
+            {
+                var story = _turningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = true;
+                prisonerOptions[1] = true;
+                return;
+            }
+        }
+        else if(_AI_Health >= 2)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesLowHealth.Count > 0)
+            {
+                var story = _storiesLowHealth[Random.Range(0, _storiesLowHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+            else if (_notTurningHint[_AI_Health - 2] && randomNum % 2 == 0)
+            {
+                var story = _notTurningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = false;
+                prisonerOptions[1] = false;
+                return;
+            }
+            else if (_turningHint[_AI_Health - 2])
+            {
+                var story = _turningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = true;
+                prisonerOptions[1] = true;
+                return;
+            }
+        }
+        else if(_AI_Health == 1)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesLowHealth.Count > 0)
+            {
+                var story = _storiesLowHealth[Random.Range(0, _storiesLowHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
         }
 
         ServiceLocator.Get<TextManager>().EnableStory(null);
