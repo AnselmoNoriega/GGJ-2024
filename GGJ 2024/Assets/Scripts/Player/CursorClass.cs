@@ -57,7 +57,6 @@ public class CursorClass : MonoBehaviour
         eventData.position = Input.mousePosition;
         List<RaycastResult> results = new List<RaycastResult>();
         graphicRaycaster.Raycast(eventData, results);
-        Debug.Log(cursorState);
         if (results.Count > 0)
         {
             UpdateHoverCursor(results[0].gameObject.tag);

@@ -23,7 +23,6 @@ public class SceneFadeManager : MonoBehaviour
     public void LoadScene(string _scene)
     {
         sceneToLoad = _scene;
-        Debug.Log(_animator);
         _animator.SetTrigger("FadeOut");
     }
 

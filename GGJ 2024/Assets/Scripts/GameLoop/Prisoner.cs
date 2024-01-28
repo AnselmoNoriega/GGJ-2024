@@ -113,6 +113,17 @@ public class Prisoner
         return move;
     }
 
+    public bool HasPattern()
+    {
+        return currentPattern != null;
+    }
+
+    // IMPORTANT: Does not modify currentpattern
+    public byte GetCurrentAnticipatedPlayerMove()
+    {
+        return currentPattern[currentPatternIndex];
+    }
+
     // DEBUG
     public void PrintPlayerMoves() {
         string output = "";
