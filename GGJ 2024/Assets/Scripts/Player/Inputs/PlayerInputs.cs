@@ -22,13 +22,18 @@ public class PlayerInputs : MonoBehaviour
     {
         _interactPauseMenu.Enable();
         _interactPauseMenu.performed += ButtonPauseMenu;
+
+        _continueText.Enable();
         _continueText.performed += ServiceLocator.Get<TextManager>().OnClick;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _interactPauseMenu.Disable();
         _interactPauseMenu.performed -= ButtonPauseMenu;
+
+        _continueText.Disable();
+        _continueText.performed -= ServiceLocator.Get<TextManager>().OnClick;
     }
 
     private void ButtonPauseMenu(InputAction.CallbackContext input)

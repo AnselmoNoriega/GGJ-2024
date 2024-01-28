@@ -54,6 +54,11 @@ public class TextManager : MonoBehaviour
 
     public void LoadTextAnim()
     {
+        if(!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         if (!_loadingText && _story.canContinue)
         {
             _storyText.text = "";
