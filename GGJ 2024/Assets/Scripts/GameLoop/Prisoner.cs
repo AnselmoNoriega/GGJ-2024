@@ -22,7 +22,6 @@ public class Prisoner
         playerMoves.Add(playerMove);
         if (currentPattern != null && currentPattern[currentPatternIndex] != playerMove) {
             currentPattern = null;
-            Debug.Log("Pattern scrapped"); // Debug
         }
     }
 
@@ -109,7 +108,6 @@ public class Prisoner
             currentPattern.Add(movesToAnalyze[i]);
         }
         currentPatternIndex = depth % length;
-        Debug.Log("Pattern found! Next player move: " + currentPattern[currentPatternIndex]); // Debug
     }
 
     private byte CounterPlayerMove(bool valve1, bool valve2, int anticipated) {
