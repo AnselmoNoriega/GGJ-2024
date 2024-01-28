@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int wins = 15;
+    public int wins;
+
+    public void Awake()
+    {
+        wins = 0;
+    }
 }
