@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cursorNormal: {fileID: 2800000, guid: 82aae3d484ac7ee48991a5b106e8d6ea, type: 3}
-  _cursorNormalHotSpot: {x: 40, y: 40}
+  _cursorNormalHotSpot: {x: 0, y: 0}
   _cursorInteractable: {fileID: 2800000, guid: e4f91ea749148664db027f005f19388e, type: 3}
-  _cursorInteractableHotSpot: {x: 40, y: 40}
+  _cursorInteractableHotSpot: {x: 0, y: 0}
   _cursorValve: {fileID: 2800000, guid: 78468d1a167fb154b9a97a7185aa0873, type: 3}
-  _cursorValveHotSpot: {x: 40, y: 40}
+  _cursorValveHotSpot: {x: 0, y: 0}
+  _cursorFrustrated: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
+  _cursorFrustratedHotSpot: {x: 0, y: 0}

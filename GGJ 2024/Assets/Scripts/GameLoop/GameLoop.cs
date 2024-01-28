@@ -13,14 +13,15 @@ public class GameLoop : MonoBehaviour
     private float _timer;
 
     [Space, Header("Object References")]
-    [SerializeField] private Valve[] valves;
-    [SerializeField] private GameObject _PlayerPointer;
+    [SerializeField] private Valve[] _valves;
+    [SerializeField] private GameObject _playerPointer;
     [SerializeField] private GameObject _AIPointer;
-    [SerializeField] private GameObject _panelEnding;
+    [SerializeField] private GameObject _escapeEnding;
+    [SerializeField] private GameObject _gameOverEnding;
 
     [Space, Header("UI References")]
     [SerializeField] private Slider _timerUI;
-    [SerializeField] private TextMeshProUGUI _gameOverText;
+    [SerializeField] private TextMeshProUGUI _turnText;
 
     [Space, Header("Info for Valves")]
     [SerializeField] private float _blinkingTime = 0.3f;
@@ -29,12 +30,23 @@ public class GameLoop : MonoBehaviour
     private bool[] valveValues = new bool[] { false, false }; // True faces the player, false faces the prisoner
 
     [Space, Header("Stories")]
-    [SerializeField] private List<TextAsset> _stories;
+    [SerializeField] private List<TextAsset> _storiesMidHealth;
+    [SerializeField] private List<TextAsset> _storiesLowHealth;
+
+    [SerializeField] private List<TextAsset> _storiesOneHealth;
+    [SerializeField] private List<TextAsset> _storiesTwoHealth;
+    [SerializeField] private List<TextAsset> _storiesThreeHealth;
+    [SerializeField] private List<TextAsset> _storiesFourHealth;
+
+    [SerializeField] private List<TextAsset> _notTurningHint;
+    [SerializeField] private List<TextAsset> _turningHint;
+    [SerializeField] private List<TextAsset> _playerGassed;
 
     // PRISONER LOGIC
     private Prisoner prisoner;
     private bool[] prisonerOptions;
 
+private bool _playerGotGassed = false;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -44,7 +56,6 @@ public class GameLoop : MonoBehaviour
     {
         _timer = _timePerRound;
         _loaded = true;
-        ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
         _timerUI.maxValue = _timePerRound;
         _blinkingArrowTimer = _blinkingTime;
         valveValues = new bool[] { true, false };
@@ -74,41 +85,56 @@ public class GameLoop : MonoBehaviour
 
     private IEnumerator GetOptions()
     {
-        bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
+        bool[] playerOptions = { _valves[0].ReturnChoice(), _valves[1].ReturnChoice() };
         prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
+        ServiceLocator.Get<CursorClass>().SetPipesTurningToTrue();
+        ServiceLocator.Get<CursorClass>().CursorFrustratedWhilePipesTurning();
+
+        _turnText.gameObject.SetActive(true);
+        _turnText.SetText("YOUR MOVE");
+        _turnText.color = Color.white;
 
         for (int i = 0; i < 2; ++i)
         {
             if (playerOptions[i])
             {
-                valves[i].Rotate();
+                _valves[i].Rotate();
             }
         }
+
         yield return new WaitForSeconds(2);
 
         for (int i = 0; i < 2; ++i)
         {
             if (prisonerOptions[i])
             {
-                valves[i].Rotate();
+                _valves[i].Rotate();
             }
         }
+
+        _turnText.gameObject.SetActive(true);
+        _turnText.SetText("PRISONER MOVE");
+        _turnText.color = Color.red;
+
         yield return new WaitForSeconds(2.5f);
 
         // Values are locked in
-        valveValues[0] = Mathf.RoundToInt(valves[0].transform.rotation.y) == 0;
-        valveValues[1] = Mathf.RoundToInt(valves[1].transform.rotation.y) == 0;
+        valveValues[0] = Mathf.RoundToInt(_valves[0].transform.rotation.y) == 0;
+        valveValues[1] = Mathf.RoundToInt(_valves[1].transform.rotation.y) == 0;
+
+        _turnText.gameObject.SetActive(false);
 
         if (valveValues[0] == valveValues[1])
         {
             if (valveValues[0])
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
-                var playerHealthsAngle = _PlayerPointer.transform.localRotation.eulerAngles;
-                _PlayerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
+                var playerHealthsAngle = _playerPointer.transform.localRotation.eulerAngles;
+                _playerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
+                ServiceLocator.Get<SoundManager>().PlaySound("PlayerLose");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
 
                 if (health <= 0)
@@ -117,13 +143,14 @@ public class GameLoop : MonoBehaviour
                 }
 
                 CheckMusic(health);
-
+                _playerGotGassed = true;
             }
             else
             {
                 --_AI_Health;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
+                ServiceLocator.Get<SoundManager>().PlaySound("PrisonerLose");
 
                 if (_AI_Health <= 0)
                 {
@@ -133,7 +160,6 @@ public class GameLoop : MonoBehaviour
         }
 
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
-        ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
 
         TellStory();
@@ -146,7 +172,7 @@ public class GameLoop : MonoBehaviour
             _blinkingArrowTimer = _blinkingTime;
             for (int i = 0; i < 2; ++i)
             {
-                valves[i].TimerForArowBlink(_shouldBlink);
+                _valves[i].TimerForArowBlink(_shouldBlink);
             }
             _shouldBlink = !_shouldBlink;
         }
@@ -166,17 +192,119 @@ public class GameLoop : MonoBehaviour
 
     public void ContinueGame()
     {
+        _valves[0].EnableValves();
+        _valves[1].EnableValves();
         _gameOnGoing = true;
+        ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
+        ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
+        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
     }
 
     private void TellStory()
     {
-        if (_stories.Count > 0)
+        if (_AI_Health  == 5)
         {
-            var story = _stories[Random.Range(0, _stories.Count)];
-            ServiceLocator.Get<TextManager>().EnableStory(story);
-            _stories.Remove(story);
-            return;
+            if (_storiesMidHealth.Count > 0)
+            {
+                var story = _storiesMidHealth[Random.Range(0, _storiesMidHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+        }
+        else if(_AI_Health >= 3)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesMidHealth.Count > 0)
+            {
+                var story = _storiesMidHealth[Random.Range(0, _storiesMidHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+            else if (_notTurningHint[_AI_Health - 2] && randomNum % 2 == 0)
+            {
+                var story = _notTurningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = false;
+                prisonerOptions[1] = false;
+                return;
+            }
+            else if (_turningHint[_AI_Health - 2])
+            {
+                var story = _turningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = true;
+                prisonerOptions[1] = true;
+                return;
+            }
+        }
+        else if(_AI_Health >= 2)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesLowHealth.Count > 0)
+            {
+                var story = _storiesLowHealth[Random.Range(0, _storiesLowHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+            else if (_notTurningHint[_AI_Health - 2] && randomNum % 2 == 0)
+            {
+                var story = _notTurningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = false;
+                prisonerOptions[1] = false;
+                return;
+            }
+            else if (_turningHint[_AI_Health - 2])
+            {
+                var story = _turningHint[_AI_Health - 2];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                prisonerOptions[0] = true;
+                prisonerOptions[1] = true;
+                return;
+            }
+        }
+        else if(_AI_Health == 1)
+        {
+            if (_playerGotGassed)
+            {
+                _playerGotGassed = false;
+                if (_playerGassed[_AI_Health - 1])
+                {
+                    var story = _playerGassed[_AI_Health - 1];
+                    ServiceLocator.Get<TextManager>().EnableStory(story);
+                    return;
+                }
+            }
+
+            int randomNum = Random.Range(0, 101);
+            if (randomNum > 50 && _storiesLowHealth.Count > 0)
+            {
+                var story = _storiesLowHealth[Random.Range(0, _storiesLowHealth.Count)];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
         }
 
         ServiceLocator.Get<TextManager>().EnableStory(null);
@@ -191,7 +319,7 @@ public class GameLoop : MonoBehaviour
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Climax");
                 }
                 return;
-            case 2:
+            case 3:
                 {
                     ServiceLocator.Get<SoundManager>().PlayMainSound("Ending");
                 }
@@ -202,17 +330,14 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
-        _panelEnding.SetActive(true);
         if (winner == "Player")
         {
-            _gameOverText.text = "You Escaped!";
-            _gameOverText.color = Color.white;
+            _escapeEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Win");
         }
         else
         {
-            _gameOverText.text = "Game Over";
-            _gameOverText.color = Color.red;
+            _gameOverEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Lose");
         }
     }

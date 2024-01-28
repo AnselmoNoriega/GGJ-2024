@@ -249,14 +249,24 @@ MonoBehaviour:
     Loop: 1
     Volume: 0.777
     Pitch: 1.59
-  - Name: Climax
-    AudioClip: {fileID: 8300000, guid: d5dd49b2d82bd9f45911d61c413d4fb1, type: 3}
-    Loop: 0
-    Volume: 0
-    Pitch: 0
   - Name: Ending
     AudioClip: {fileID: 8300000, guid: 7c76aeb3d4eedb046bc0eb719a873581, type: 3}
     Loop: 1
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Win
+    AudioClip: {fileID: 8300000, guid: 63364ebb282edb74ca7214543e25fc85, type: 3}
+    Loop: 1
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Lose
+    AudioClip: {fileID: 8300000, guid: 12d168eae559e0940acf97df658ce77c, type: 3}
+    Loop: 1
+    Volume: 0.634
+    Pitch: 0.7
+  - Name: Maniacal1
+    AudioClip: {fileID: 8300000, guid: e0bf04188ad56954f96adc563326efa0, type: 3}
+    Loop: 0
     Volume: 0.634
     Pitch: 0.7
 --- !u!1 &8113379423365251708
@@ -303,16 +313,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aac302c13515d946ac530b2289c2784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AI_Health: 5
   _timePerRound: 15
-  _timerUI: {fileID: 0}
   valves:
   - {fileID: 0}
   - {fileID: 0}
   _PlayerPointer: {fileID: 0}
   _AIPointer: {fileID: 0}
-  _panelEnding: {fileID: 0}
-  _gameOverText: {fileID: 0}
-  _AI_Health: 5
+  _escapeEnding: {fileID: 0}
+  _gameOverEnding: {fileID: 0}
+  _timerUI: {fileID: 0}
+  _turnText: {fileID: 0}
+  _blinkingTime: 0.5
+  _storiesMidHealth:
+  - {fileID: 4900000, guid: 85c114320ffbf5745942f4f143c119d4, type: 3}
+  - {fileID: 4900000, guid: 411ee318b5baad449b130fba56738dd3, type: 3}
+  - {fileID: 4900000, guid: 02cfa7f7a08d17747b1e5bf968f768e9, type: 3}
+  - {fileID: 4900000, guid: fd70bd4792f780b4c88bfe2d0798c0e7, type: 3}
+  - {fileID: 4900000, guid: 489933a24a2927d45afb9c04efa50a5e, type: 3}
+  - {fileID: 4900000, guid: d23453b4ab8eea84c90992bd4b6a1d36, type: 3}
+  - {fileID: 4900000, guid: a25e1943135b6114ba5510b32f3c35e2, type: 3}
+  _storiesLowHealth:
+  - {fileID: 4900000, guid: a0ed03e87d1099243bb0de6139976b80, type: 3}
+  - {fileID: 4900000, guid: b79d30280d4ec1f4a96f36717e3a38db, type: 3}
+  - {fileID: 4900000, guid: 759f8fa1574b66344bf46655a311d713, type: 3}
+  - {fileID: 4900000, guid: 590cabb12ac5806449a45836a87d0752, type: 3}
+  - {fileID: 4900000, guid: 0bd319158959ee8429628cfc92e38e66, type: 3}
+  - {fileID: 4900000, guid: 6b6b325a9fea11f47ae9ecf16f94b8d6, type: 3}
+  - {fileID: 4900000, guid: 3cd1590cef628d640bcda3eca63fb43b, type: 3}
+  _storiesOneHealth:
+  - {fileID: 4900000, guid: e436cf538a3dbe04b9373d26ee4ab4e5, type: 3}
+  - {fileID: 4900000, guid: 9bba546f47b20db458c6e070abbb4026, type: 3}
+  _storiesTwoHealth:
+  - {fileID: 4900000, guid: 46f1ddae133f8964293cc455f2e9b7db, type: 3}
+  - {fileID: 4900000, guid: 528bdceb56f021e4e94e9586f0b887cc, type: 3}
+  _storiesThreeHealth:
+  - {fileID: 4900000, guid: 77c0fcfc7c53e55459ace1bbfc9c38f9, type: 3}
+  - {fileID: 4900000, guid: e626e7475e344c244ae771086cd074a6, type: 3}
+  _storiesFourHealth:
+  - {fileID: 4900000, guid: 9fc41e1955a13ba4e855e0e957c77d2d, type: 3}
+  - {fileID: 4900000, guid: 392f80d0d325b3d46addb2305d7a4c3a, type: 3}
+  _notTurningHint:
+  - {fileID: 4900000, guid: 5a903b5e05ad6ef4ea6e447efedb3bab, type: 3}
+  - {fileID: 4900000, guid: db63568653a787b4598c88d58d4d7a5c, type: 3}
+  - {fileID: 4900000, guid: 08cfdeebe6e2c5346b9b864621f61b86, type: 3}
+  _turningHint:
+  - {fileID: 4900000, guid: a6eafa6a0da76ce45a333eaad7d355a5, type: 3}
+  - {fileID: 4900000, guid: 371e0013a86e74248bb7d6458d4caee9, type: 3}
+  - {fileID: 4900000, guid: 868f558e65ce6ce4d86a2c57e6ce128a, type: 3}
+  _playerGassed:
+  - {fileID: 4900000, guid: eb1befb072a156c4f8b716e973baf304, type: 3}
+  - {fileID: 4900000, guid: 9bc9548fdb4c90848859160a8c71abb3, type: 3}
+  - {fileID: 4900000, guid: a0387dab97fbebe48a00f1bbededef1d, type: 3}
+  - {fileID: 4900000, guid: c2deb82b184937240aff43f66dd828e0, type: 3}
 --- !u!1 &8946398651106377068
 GameObject:
   m_ObjectHideFlags: 0

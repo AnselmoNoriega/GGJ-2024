@@ -10,6 +10,7 @@ public class Valve : MonoBehaviour
     [SerializeField] private Animator _canisterAnimation;
 
     private Animator _animation;
+    private Button _valveButton;
     private bool _rotateValveOption;
 
     private Color _arrowColor;
@@ -17,6 +18,7 @@ public class Valve : MonoBehaviour
     private void Awake()
     {
         _animation = _gauge.GetComponent<Animator>();
+        _valveButton = _gauge.GetComponent<Button>();
         _arrowColor = _blinkingArrow.color;
     }
 
@@ -33,12 +35,16 @@ public class Valve : MonoBehaviour
     {
         if (!_rotateValveOption && _gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().PlaySound("ValveTurn");
+            ServiceLocator.Get<SoundManager>().PlaySound("TurnSignal");
             _turnArrows.SetActive(true);
             _rotateValveOption = true;
             _animation.Play("ValveTurning");
         }
         else if (_gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().PlaySound("ValveTurn");
+            ServiceLocator.Get<SoundManager>().StopSound("TurnSignal");
             _arrowColor.a = 0.15f;
             _blinkingArrow.color = _arrowColor;
             _turnArrows.SetActive(false);
@@ -54,12 +60,19 @@ public class Valve : MonoBehaviour
 
     public bool ReturnChoice()
     {
+        _valveButton.interactable = false;
         _arrowColor.a = 0.15f;
         _blinkingArrow.color = _arrowColor;
         _turnArrows.SetActive(false);
         bool choice = _rotateValveOption;
         _rotateValveOption = false;
+        ServiceLocator.Get<SoundManager>().StopSound("TurnSignal");
         return choice;
+    }
+
+    public void EnableValves()
+    {
+        _valveButton.interactable = true;
     }
 
 }
