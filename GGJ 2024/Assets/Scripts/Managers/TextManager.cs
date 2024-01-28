@@ -18,22 +18,21 @@ public class TextManager : MonoBehaviour
 
     public void EnableStory(TextAsset textStory)
     {
-        if(textStory == null)
+        if (textStory == null)
         {
             ServiceLocator.Get<GameLoop>().ContinueGame();
             gameObject.SetActive(false);
             return;
         }
 
-        _story.BindExternalFunction("playSound", (string soundName) =>
-        {
-            if (ServiceLocator.Get<SoundManager>() != null)
-            {
-                ServiceLocator.Get<SoundManager>().PlaySound(soundName);
-            }
-        });
+        gameObject.SetActive(true);
 
         _story = new Story(textStory.text);
+        _story.BindExternalFunction("playSound", (string soundName) =>
+        {
+            ServiceLocator.Get<SoundManager>().PlaySound(soundName);
+        });
+
         LoadTextAnim();
     }
 
@@ -62,7 +61,7 @@ public class TextManager : MonoBehaviour
 
     public void LoadTextAnim()
     {
-        if(!gameObject.activeInHierarchy)
+        if (!gameObject.activeInHierarchy)
         {
             return;
         }
@@ -75,7 +74,7 @@ public class TextManager : MonoBehaviour
             _timer = _wordSpeed;
             _currentStoryLine = _story.Continue();
         }
-        else if(!_loadingText && !_story.canContinue)
+        else if (!_loadingText && !_story.canContinue)
         {
             ServiceLocator.Get<GameLoop>().ContinueGame();
             gameObject.SetActive(false);
