@@ -44,12 +44,14 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private List<TextAsset> _notTurningHint;
     [SerializeField] private List<TextAsset> _turningHint;
     [SerializeField] private List<TextAsset> _playerGassed;
+    [SerializeField] private List<TextAsset> _prisonerGassed;
 
     // PRISONER LOGIC
     private Prisoner prisoner;
     private bool[] prisonerOptions;
 
-private bool _playerGotGassed = false;
+    private bool _playerGotGassed = false;
+    private bool _prisonerGotGassed = false;
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -169,6 +171,7 @@ private bool _playerGotGassed = false;
                 {
                     FinishGame("Player");
                 }
+                _prisonerGotGassed = true;
             }
         }
         else
@@ -218,28 +221,30 @@ private bool _playerGotGassed = false;
 
     private void TellStory()
     {
-        if (_AI_Health  == 5)
+        if (_playerGotGassed)
         {
-            if (_storiesMidHealth.Count > 0)
+            _playerGotGassed = false;
+            if (_playerGassed[_AI_Health - 1])
             {
-                var story = _storiesMidHealth[Random.Range(0, _storiesMidHealth.Count)];
+                var story = _playerGassed[_AI_Health - 1];
                 ServiceLocator.Get<TextManager>().EnableStory(story);
                 return;
             }
         }
-        else if(_AI_Health >= 3)
-        {
-            if (_playerGotGassed)
-            {
-                _playerGotGassed = false;
-                if (_playerGassed[_AI_Health - 1])
-                {
-                    var story = _playerGassed[_AI_Health - 1];
-                    ServiceLocator.Get<TextManager>().EnableStory(story);
-                    return;
-                }
-            }
 
+        if (_prisonerGotGassed)
+        {
+            _prisonerGotGassed = false;
+            if (_playerGassed[_AI_Health - 1])
+            {
+                var story = _prisonerGassed[_AI_Health - 1];
+                ServiceLocator.Get<TextManager>().EnableStory(story);
+                return;
+            }
+        }
+
+        if(_AI_Health >= 3)
+        {
             int randomNum = Random.Range(0, 101);
             if (randomNum > 50 && _storiesMidHealth.Count > 0)
             {

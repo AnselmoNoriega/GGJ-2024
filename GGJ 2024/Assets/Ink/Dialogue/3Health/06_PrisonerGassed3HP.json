@@ -1,0 +1,50 @@
+﻿{
+    "inkVersion": 21,
+    "root": [
+        [
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            "^The sweetness of the Saccharum, you’re sure to like the taste!",
+            "\n",
+            "^You’re filled with mirth, and leave this Earth, a smile on your face!",
+            "\n",
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            [
+                "done",
+                {
+                    "#f": 5,
+                    "#n": "g-0"
+                }
+            ],
+            null
+        ],
+        "done",
+        {
+            "#f": 1
+        }
+    ],
+    "listDefs": {}
+}

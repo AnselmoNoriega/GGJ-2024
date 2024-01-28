@@ -1,0 +1,50 @@
+﻿{
+    "inkVersion": 21,
+    "root": [
+        [
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            "^Oh, this is the happiest place, the happiest place to be!",
+            "\n",
+            "^Where frowns are twisted upside-down and chests are filled with glee!",
+            "\n",
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            [
+                "done",
+                {
+                    "#f": 5,
+                    "#n": "g-0"
+                }
+            ],
+            null
+        ],
+        "done",
+        {
+            "#f": 1
+        }
+    ],
+    "listDefs": {}
+}

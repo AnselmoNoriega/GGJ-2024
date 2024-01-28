@@ -1,0 +1,50 @@
+﻿{
+    "inkVersion": 21,
+    "root": [
+        [
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            "^Oh happy day, oh merry night, we all come out to play!",
+            "\n",
+            "^Oh joyous day, oh cheerful night, or else you’ll go away!",
+            "\n",
+            "ev",
+            "str",
+            "^Delirious",
+            "/str",
+            {
+                "x()": "playSound",
+                "exArgs": 1
+            },
+            "pop",
+            "/ev",
+            "\n",
+            "^[ Delirious Laughter ]",
+            "\n",
+            [
+                "done",
+                {
+                    "#f": 5,
+                    "#n": "g-0"
+                }
+            ],
+            null
+        ],
+        "done",
+        {
+            "#f": 1
+        }
+    ],
+    "listDefs": {}
+}

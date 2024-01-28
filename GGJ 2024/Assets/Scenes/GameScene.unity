@@ -22138,6 +22138,41 @@ PrefabInstance:
       propertyPath: _valves.Array.data[1]
       value: 
       objectReference: {fileID: 359423929}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _playerGassed.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _prisonerGassed.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _playerGassed.Array.data[4]
+      value: 
+      objectReference: {fileID: 4900000, guid: c2deb82b184937240aff43f66dd828e0, type: 3}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _prisonerGassed.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 696038c0ee8e7fd4fa2708bb639b8f83, type: 3}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _prisonerGassed.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: e6f382166e986d042adcdb8ba6f4acd9, type: 3}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _prisonerGassed.Array.data[2]
+      value: 
+      objectReference: {fileID: 4900000, guid: 51a529682b93d084992d15f09534ba2d, type: 3}
+    - target: {fileID: 7468406051541024918, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _prisonerGassed.Array.data[3]
+      value: 
+      objectReference: {fileID: 4900000, guid: c772a696c4935a94f984ddf7c4f5b7e8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05fb95f52c37c144c931c7bd4915c3e9, type: 3}
 --- !u!114 &4382687794303259871 stripped
