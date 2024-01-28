@@ -95,8 +95,7 @@ private bool _playerGotGassed = false;
         prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
-        ServiceLocator.Get<CursorClass>().SetPipesTurningToTrue();
-        ServiceLocator.Get<CursorClass>().CursorFrustratedWhilePipesTurning();
+        ServiceLocator.Get<CursorClass>().SetPipesTurning(true);
 
         _turnText.gameObject.SetActive(true);
         _turnText.SetText("YOUR MOVE");
@@ -211,8 +210,7 @@ private bool _playerGotGassed = false;
         _valves[1].EnableValves();
         _gameOnGoing = true;
         ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
-        ServiceLocator.Get<CursorClass>().SetPipesTurningToFalse();
-        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
+        ServiceLocator.Get<CursorClass>().SetPipesTurning(false);
     }
 
     private void TellStory()

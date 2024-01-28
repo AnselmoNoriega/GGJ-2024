@@ -230,9 +230,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 229905086}
+  - component: {fileID: 229905089}
   - component: {fileID: 229905085}
   - component: {fileID: 229905084}
+  - component: {fileID: 229905086}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -275,8 +276,29 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!4 &229905086
-Transform:
+--- !u!114 &229905086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229905083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4f7a17ad016f047bef7c8946c52966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cursorNormal: {fileID: 2800000, guid: 82aae3d484ac7ee48991a5b106e8d6ea, type: 3}
+  _cursorNormalHotSpot: {x: 0, y: 0}
+  _cursorInteractable: {fileID: 2800000, guid: e4f91ea749148664db027f005f19388e, type: 3}
+  _cursorInteractableHotSpot: {x: 0, y: 0}
+  _cursorValve: {fileID: 2800000, guid: 78468d1a167fb154b9a97a7185aa0873, type: 3}
+  _cursorValveHotSpot: {x: 0, y: 0}
+  _cursorFrustrated: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
+  _cursorFrustratedHotSpot: {x: 0, y: 0}
+  graphicRaycaster: {fileID: 1292129042}
+--- !u!224 &229905089
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -290,6 +312,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &375195238
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +330,7 @@ GameObject:
   - component: {fileID: 375195240}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,7 +683,7 @@ GameObject:
   - component: {fileID: 751537277}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1022,7 +1049,7 @@ GameObject:
   - component: {fileID: 829516177}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2187,7 +2214,7 @@ GameObject:
   - component: {fileID: 1506964450}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2531,7 +2558,7 @@ GameObject:
   - component: {fileID: 1711666830}
   m_Layer: 5
   m_Name: Button - Credits
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2799,7 +2826,7 @@ GameObject:
   - component: {fileID: 1825583818}
   m_Layer: 5
   m_Name: Button - Quit Button
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3397,7 +3424,7 @@ GameObject:
   - component: {fileID: 2022273179}
   m_Layer: 5
   m_Name: Button - Play Game
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3725,7 +3752,7 @@ GameObject:
   - component: {fileID: 2071349367}
   m_Layer: 5
   m_Name: Button - How To Play
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

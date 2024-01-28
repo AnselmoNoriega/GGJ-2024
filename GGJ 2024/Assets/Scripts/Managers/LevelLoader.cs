@@ -11,6 +11,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private ParticleManager _particleManager;
     [SerializeField] private UIManager _uIManager;
     [SerializeField] private VisualEffects _visualEffects;
+    [SerializeField] private CursorClass _cursorClass;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class LevelLoader : MonoBehaviour
         ServiceLocator.Register<ParticleManager>(_particleManager);
         ServiceLocator.Register<UIManager>(_uIManager);
         ServiceLocator.Register<VisualEffects>(_visualEffects);
+        ServiceLocator.Register<CursorClass>(_cursorClass);
 
         _gameLoopManager.Load();
         _playerInput.Load();
@@ -39,5 +41,6 @@ public class LevelLoader : MonoBehaviour
         ServiceLocator.Unregister<ParticleManager>();
         ServiceLocator.Unregister<UIManager>();
         ServiceLocator.Unregister<VisualEffects>();
+        ServiceLocator.Unregister<CursorClass>();
     }
 }

@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour
     public void ButtonSceneLoader(string _scene)
     {
         _sceneFadeManager.LoadScene(_scene);
-        ServiceLocator.Get<CursorClass>()?.ReturnCursorToNormal();
         Time.timeScale = 1;
     }
 
@@ -43,7 +42,6 @@ public class UIManager : MonoBehaviour
     {
         _panel.SetActive(active);
         _mainMenu.SetActive(!active);
-        ServiceLocator.Get<CursorClass>()?.ReturnCursorToNormal();
     }
 
     public void ButtonExitGame()
@@ -54,7 +52,6 @@ public class UIManager : MonoBehaviour
     public void ButtonResumeGame(GameObject _pauseMenu)
     {
         _pauseMenu.SetActive(false);
-        ServiceLocator.Get<CursorClass>().ReturnCursorToNormal();
         Time.timeScale = 1;
     }
 
