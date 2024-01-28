@@ -169,6 +169,10 @@ private bool _playerGotGassed = false;
                 }
             }
         }
+        else
+        {
+            ServiceLocator.Get<SoundManager>().PlaySound("OnePipeTurn");
+        }
 
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
         _timer = _timePerRound;
