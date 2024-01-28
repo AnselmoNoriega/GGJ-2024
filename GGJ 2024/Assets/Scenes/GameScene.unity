@@ -21791,6 +21791,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[5].Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[5].Name
+      value: Maniacal1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[5].Pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[5].Volume
+      value: 0.634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290112818577904515, guid: 05fb95f52c37c144c931c7bd4915c3e9,
+        type: 3}
+      propertyPath: _sounds.Array.data[5].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0bf04188ad56954f96adc563326efa0, type: 3}
     - target: {fileID: 6690435916903691054, guid: 05fb95f52c37c144c931c7bd4915c3e9,
         type: 3}
       propertyPath: _gasEffectHolder
