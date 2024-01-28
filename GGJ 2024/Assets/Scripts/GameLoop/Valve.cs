@@ -33,6 +33,7 @@ public class Valve : MonoBehaviour
     {
         if (!_rotateValveOption && _gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().PlaySound("ValveTurn");
             ServiceLocator.Get<SoundManager>().PlaySound("TurnSignal");
             _turnArrows.SetActive(true);
             _rotateValveOption = true;
@@ -40,6 +41,7 @@ public class Valve : MonoBehaviour
         }
         else if (_gauge.transform.rotation.eulerAngles.z == 0)
         {
+            ServiceLocator.Get<SoundManager>().PlaySound("ValveTurn");
             ServiceLocator.Get<SoundManager>().StopSound("TurnSignal");
             _arrowColor.a = 0.15f;
             _blinkingArrow.color = _arrowColor;
