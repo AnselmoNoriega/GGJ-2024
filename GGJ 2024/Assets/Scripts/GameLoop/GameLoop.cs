@@ -26,9 +26,15 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private float _blinkingTime = 0.3f;
     private float _blinkingArrowTimer;
     private bool _shouldBlink = true;
+    private bool[] valveValues = new bool[] { false, false }; // True faces the player, false faces the prisoner
 
     [Space, Header("Stories")]
     [SerializeField] private List<TextAsset> _stories;
+
+    // PRISONER LOGIC
+    private Prisoner prisoner;
+    private bool[] prisonerOptions;
+
 
     private bool _loaded = false;
     private bool _gameOver = false;
@@ -41,6 +47,9 @@ public class GameLoop : MonoBehaviour
         ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
         _timerUI.maxValue = _timePerRound;
         _blinkingArrowTimer = _blinkingTime;
+        valveValues = new bool[] { true, false };
+        prisoner = new Prisoner();
+        prisonerOptions = prisoner.GetNextMove(true, false);
     }
 
     private void Update()
@@ -66,6 +75,7 @@ public class GameLoop : MonoBehaviour
     private IEnumerator GetOptions()
     {
         bool[] playerOptions = { valves[0].ReturnChoice(), valves[1].ReturnChoice() };
+        prisoner.LogPlayerMove(playerOptions[0], playerOptions[1]);
 
         _gameOnGoing = false;
 
@@ -80,16 +90,20 @@ public class GameLoop : MonoBehaviour
 
         for (int i = 0; i < 2; ++i)
         {
-            if (Random.Range(1, 101) <= 50)
+            if (prisonerOptions[i])
             {
                 valves[i].Rotate();
             }
         }
         yield return new WaitForSeconds(2.5f);
 
-        if (valves[0].transform.rotation.y == valves[1].transform.rotation.y)
+        // Values are locked in
+        valveValues[0] = Mathf.RoundToInt(valves[0].transform.rotation.y) == 0;
+        valveValues[1] = Mathf.RoundToInt(valves[1].transform.rotation.y) == 0;
+
+        if (valveValues[0] == valveValues[1])
         {
-            if (Mathf.RoundToInt(valves[0].transform.rotation.eulerAngles.y) == 0)
+            if (valveValues[0])
             {
                 int health = --ServiceLocator.Get<Player>().Lives;
                 var playerHealthsAngle = _PlayerPointer.transform.localRotation.eulerAngles;
@@ -118,6 +132,7 @@ public class GameLoop : MonoBehaviour
             }
         }
 
+        prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
         ServiceLocator.Get<UIManager>().ButtonSetActive(true);
         _timer = _timePerRound;
 
