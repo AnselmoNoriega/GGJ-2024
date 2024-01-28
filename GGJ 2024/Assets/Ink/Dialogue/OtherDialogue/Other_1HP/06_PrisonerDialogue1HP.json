@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["^Somebody open a window. It’s getting a little gassy in here!","\n","^[ Laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["^Somebody open a window. It’s getting a little gassy in here!","\n","ev","str","^Maniacal2","/str",{"x()":"playSound","exArgs":1},"pop","/ev","\n","^[ Maniacal laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

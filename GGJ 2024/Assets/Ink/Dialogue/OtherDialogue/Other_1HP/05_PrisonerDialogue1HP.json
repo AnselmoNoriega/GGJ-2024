@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["^Getting out of here alive is nothing but a pipe dream!","\n","^Get it? A pipe dream??","\n","^[ Laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["^Getting out of here alive is nothing but a pipe dream!","\n","^Get it? A pipe dream??","\n","ev","str","^Maniacal1","/str",{"x()":"playSound","exArgs":1},"pop","/ev","\n","^[ Maniacal laughter ]","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

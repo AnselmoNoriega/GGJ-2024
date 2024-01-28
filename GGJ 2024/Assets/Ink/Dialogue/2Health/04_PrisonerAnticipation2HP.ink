@@ -1,4 +1,6 @@
-[ Laughs ]
+EXTERNAL playSound(soundName)
+~ playSound("Maniacal1")
+[ Grim chuckle ]
 
 What am I doing? We should be cooperating. 
 

@@ -64,6 +64,11 @@ private bool _playerGotGassed = false;
         prisonerOptions = prisoner.GetNextMove(true, false);
     }
 
+    public void Start()
+    {
+        ServiceLocator.Get<SoundManager>().PlayMainSound("Start");
+    }
+
     private void Update()
     {
         if (!_loaded || _gameOver || !_gameOnGoing)
