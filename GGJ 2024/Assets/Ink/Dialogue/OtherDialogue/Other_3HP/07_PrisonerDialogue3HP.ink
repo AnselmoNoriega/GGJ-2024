@@ -1,0 +1,1 @@
+[ Tense, thoughtful silent ]
