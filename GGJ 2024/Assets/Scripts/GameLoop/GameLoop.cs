@@ -135,6 +135,7 @@ private bool _playerGotGassed = false;
                 var playerHealthsAngle = _PlayerPointer.transform.localRotation.eulerAngles;
                 _PlayerPointer.transform.localRotation = Quaternion.Euler(playerHealthsAngle.x, playerHealthsAngle.y, playerHealthsAngle.z - 30f);
                 StartCoroutine(ServiceLocator.Get<ParticleManager>().ActivateGasEffect(2f));
+                ServiceLocator.Get<SoundManager>().PlayMainSound("PlayerLose");
                 ServiceLocator.Get<VisualEffects>().SetBlur(health);
 
                 if (health <= 0)
@@ -150,6 +151,7 @@ private bool _playerGotGassed = false;
                 --_AI_Health;
                 var aiHealthAngle = _AIPointer.transform.localRotation.eulerAngles;
                 _AIPointer.transform.localRotation = Quaternion.Euler(aiHealthAngle.x, aiHealthAngle.y, aiHealthAngle.z - 30f);
+                ServiceLocator.Get<SoundManager>().PlayMainSound("PrisonerLose");
 
                 if (_AI_Health <= 0)
                 {
