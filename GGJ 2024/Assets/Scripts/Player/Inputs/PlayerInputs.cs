@@ -27,7 +27,7 @@ public class PlayerInputs : MonoBehaviour
         _continueText.performed += ServiceLocator.Get<TextManager>().OnClick;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _interactPauseMenu.Disable();
         _interactPauseMenu.performed -= ButtonPauseMenu;

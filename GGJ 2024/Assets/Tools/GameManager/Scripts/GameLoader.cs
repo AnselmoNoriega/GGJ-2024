@@ -71,6 +71,7 @@ public class GameLoader : AsyncLoader
 
         var gm = Instantiate(_gameManager, SystemsParent);
         ServiceLocator.Register<GameManager>(gm.GetComponent<GameManager>());
+        ServiceLocator.Register<CursorClass>(gm.GetComponent<CursorClass>());
 
         yield return null;
     }

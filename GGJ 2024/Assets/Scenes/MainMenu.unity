@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.38354, g: 325.1084, b: 430.30957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,18 +280,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162964658}
   m_CullTransparentMesh: 1
---- !u!114 &190854421 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5631826143366741962, guid: 2861c0e7e51179e4893b29479729b242,
-    type: 3}
-  m_PrefabInstance: {fileID: 5631826143284939487}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4f7a17ad016f047bef7c8946c52966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &229905083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,7 +2598,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -2626,7 +2614,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -2866,7 +2854,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -2882,7 +2870,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -3390,7 +3378,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -3406,7 +3394,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -3706,7 +3694,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: OnCursorInteractableEnter
           m_Mode: 1
@@ -3722,7 +3710,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 190854421}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CursorClass, Assembly-CSharp
           m_MethodName: ReturnCursorToNormal
           m_Mode: 1
@@ -3734,72 +3722,3 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1001 &5631826143284939487
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741961, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5631826143366741963, guid: 2861c0e7e51179e4893b29479729b242,
-        type: 3}
-      propertyPath: m_Name
-      value: CursorManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2861c0e7e51179e4893b29479729b242, type: 3}
