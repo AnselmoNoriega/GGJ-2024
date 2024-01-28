@@ -210,7 +210,7 @@ private bool _playerGotGassed = false;
         _valves[1].EnableValves();
         _gameOnGoing = true;
         ServiceLocator.Get<SoundManager>().PlaySound("RoundStart");
-        ServiceLocator.Get<CursorClass>().SetPipesTurning(false);
+        ServiceLocator.Get<CursorClass>().TogglePauseMenu();
     }
 
     private void TellStory()
