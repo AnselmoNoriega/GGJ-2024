@@ -7,6 +7,7 @@ public class SceneFadeManager : MonoBehaviour
     [SerializeField] private Animator _animator;
     private string sceneToLoad = "";
     private Action actionForFade;
+    [SerializeField] private bool fadeTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,15 @@ public class SceneFadeManager : MonoBehaviour
 
     public void LoadScene(string _scene)
     {
-        sceneToLoad = _scene;
-        _animator.SetTrigger("FadeOut");
+        if (fadeTransition)
+        {
+            sceneToLoad = _scene;
+            _animator.SetTrigger("FadeOut");
+        }
+        else
+        {
+            SceneManager.LoadScene(_scene);
+        }
     }
 
     public void QuickFadeTransition(Action _action)
