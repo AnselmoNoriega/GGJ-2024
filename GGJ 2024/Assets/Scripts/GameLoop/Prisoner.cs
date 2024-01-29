@@ -24,6 +24,7 @@ public class Prisoner
         playerMoves.Add(playerMove);
         if (currentPattern != null && currentPattern[currentPatternIndex] != playerMove) {
             currentPattern = null;
+            patternOffset = 0;
         }
     }
 
