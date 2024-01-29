@@ -67,7 +67,11 @@ public class Prisoner
         for (int i = depth - 1; i > 0; i--) {
             if (CheckSubPattern(movesToAnalyze, i)) {
                 SetCurrentPattern(movesToAnalyze, i, depth);
-                return currentPattern[currentPatternIndex];
+                try {
+                    return currentPattern[currentPatternIndex];
+                } catch {
+                    return 0xff;
+                }
             }
         }
         return 0xff;
