@@ -818,7 +818,7 @@ MonoBehaviour:
   _mainMenu: {fileID: 1468077755}
   _readyButton: {fileID: 0}
   _sceneFadeManager: {fileID: 1625192548}
-  _shouldFadeButtons: 0
+  _shouldFadeButtons: 1
 --- !u!1 &1625192546
 GameObject:
   m_ObjectHideFlags: 0
