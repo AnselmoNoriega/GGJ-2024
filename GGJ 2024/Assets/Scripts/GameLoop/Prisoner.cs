@@ -103,7 +103,7 @@ public class Prisoner
         for (int i = 0; i < length; i++) {
             currentPattern.Add(movesToAnalyze[i + patternOffset]);
         }
-        currentPatternIndex = length == 1 ? 0 : depth - patternOffset - length;
+        currentPatternIndex = (depth - patternOffset) % length;
     }
 
     private byte CounterPlayerMove(bool valve1, bool valve2, int anticipated) {
@@ -130,10 +130,15 @@ public class Prisoner
     }
 
     // DEBUG
-    public void PrintPlayerMoves() {
+    public void PrintCurrentPattern() {
+        if (currentPattern == null)
+        {
+            Debug.Log("No current pattern");
+            return;
+        }
         string output = "";
-        for (int i = 0; i < playerMoves.Count; i++) {
-            output += "> MOVE " + i + ": " + playerMoves[i];
+        for (int i = 0; i < currentPattern.Count; i++) {
+            output += "> MOVE " + i + ": " + currentPattern[i] + "\n";
         }
         Debug.Log(output);
     }
