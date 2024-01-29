@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,7 +11,14 @@ public class UIManager : MonoBehaviour
     
     public void ButtonSceneLoader(string _scene)
     {
-        _sceneFadeManager.LoadScene(_scene);
+        if (_shouldFadeButtons)
+        {
+            _sceneFadeManager.LoadScene(_scene);
+        }
+        else
+        {
+            SceneManager.LoadScene(_scene);
+        }
         Time.timeScale = 1;
     }
 
