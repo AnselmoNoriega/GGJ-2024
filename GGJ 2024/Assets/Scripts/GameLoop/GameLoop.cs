@@ -182,7 +182,10 @@ public class GameLoop : MonoBehaviour
         prisonerOptions = prisoner.GetNextMove(valveValues[0], valveValues[1]);
         _timer = _timePerRound;
 
-        TellStory();
+        if (_AI_Health > 0)
+        {
+            TellStory();
+        }
     }
 
     private void BlinkingTimer()
