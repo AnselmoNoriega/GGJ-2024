@@ -18,7 +18,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject _AIPointer;
     [SerializeField] private GameObject _escapeEnding;
     [SerializeField] private GameObject _gameOverEnding;
-    [SerializeField] private GameObject _14winsEnding;
+    [SerializeField] private GameObject _14WinsEnding;
     [SerializeField] private Animator _aiAnimator;
 
     [Space, Header("UI References")]
@@ -315,9 +315,9 @@ public class GameLoop : MonoBehaviour
         _gameOver = true;
         ServiceLocator.Get<GameManager>().wins++;
 
-        if (ServiceLocator.Get<GameManager>().wins >= 16)
+        if (ServiceLocator.Get<GameManager>().wins == 14)
         {
-            _14winsEnding.SetActive(true);
+            _14WinsEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("14Wins");
         }
 

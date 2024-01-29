@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3855758162051612581}
   - component: {fileID: 7064462095322864733}
-  - component: {fileID: 2998770948830335731}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,23 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d629a69cced8775499a805f5dd4930cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2998770948830335731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455199093096613857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4f7a17ad016f047bef7c8946c52966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cursorNormal: {fileID: 2800000, guid: 82aae3d484ac7ee48991a5b106e8d6ea, type: 3}
-  _cursorNormalHotSpot: {x: 0, y: 0}
-  _cursorInteractable: {fileID: 2800000, guid: e4f91ea749148664db027f005f19388e, type: 3}
-  _cursorInteractableHotSpot: {x: 0, y: 0}
-  _cursorValve: {fileID: 2800000, guid: 78468d1a167fb154b9a97a7185aa0873, type: 3}
-  _cursorValveHotSpot: {x: 0, y: 0}
-  _cursorFrustrated: {fileID: 2800000, guid: 8d5ceba94ac269b4993e03a0472d3735, type: 3}
-  _cursorFrustratedHotSpot: {x: 0, y: 0}
+  wins: 0
