@@ -313,9 +313,8 @@ public class GameLoop : MonoBehaviour
     private void FinishGame(string winner)
     {
         _gameOver = true;
-        ServiceLocator.Get<GameManager>().wins++;
 
-        if (ServiceLocator.Get<GameManager>().wins == 14)
+        if (GameManager.wins == 14)
         {
             _14WinsEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("14Wins");
@@ -323,12 +322,14 @@ public class GameLoop : MonoBehaviour
 
         else if (winner == "Player")
         {
+            GameManager.wins++;
             _escapeEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Win");
         }
 
         else
         {
+            GameManager.wins--;
             _gameOverEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Lose");
         }
