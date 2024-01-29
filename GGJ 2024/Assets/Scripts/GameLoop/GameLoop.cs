@@ -332,7 +332,7 @@ public class GameLoop : MonoBehaviour
 
         else
         {
-            GameManager.wins--;
+            GameManager.wins = 0;
             _gameOverEnding.SetActive(true);
             ServiceLocator.Get<SoundManager>().PlayMainSound("Lose");
         }
